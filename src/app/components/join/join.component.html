@@ -1,0 +1,211 @@
+<!-- code:<input type=text [(ngModel)]="code">
+<button (click)="check()">save</button> -->
+
+<div class="sign_up" *ngIf="join==false">
+
+  <div class="pt-4 pb-3">
+
+    <h5 class="text-center mt-1 mb-4">Sign Up</h5>
+    <br>
+
+    <!-- action="#!" -->
+    <form #create_user="ngForm" (ngSubmit)="post_user()">
+
+      <div class="form-row">
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="user-alt" class="prefix"></mdb-icon>
+            <input mdbInput mdbValidate name="fname" type="text" id="materialRegisterFormFirstName" class="form-control"
+              required [(ngModel)]="user.f_name">
+            <label for="materialRegisterFormFirstName">First name</label>
+            <!-- <mdb-error *ngIf="t.invalid && (t.dirty || t.touched)">Input invalid</mdb-error>
+            <mdb-success *ngIf="input.valid && (input.dirty || input.touched)">Input valid</mdb-success> -->
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="md-form">
+            <input name="lname" type="text" id="materialRegisterFormLastName" class="form-control" required mdbValidate
+              mdbInput [(ngModel)]="user.l_name">
+            <label for="materialRegisterFormLastName">Last name</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="md-form">
+        <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+        <input mdbInput mdbValidate name="input" type="email" id="form8" class="form-control" [(ngModel)]="user.email"
+          #input="ngModel" required pattern="[^ @]*@[^ @]*">
+        <label for="form8">Your Email</label>
+        <mdb-error *ngIf="input.invalid && (input.dirty || input.touched)">Input invalid</mdb-error>
+        <mdb-success *ngIf="input.valid && (input.dirty || input.touched)">Input valid</mdb-success>
+      </div>
+
+      <div class="form-row">
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon>
+            <input name="date" type="date" id="materialRegisterFormDate" class="form-control" mdbValidate mdbInput
+              required [(ngModel)]="user.born_date">
+            <label for="materialRegisterFormDate">Date</label>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="phone-alt" class="prefix"></mdb-icon>
+            <input name="phone" type="text" id="materialRegisterFormPhone" class="form-control" mdbValidate mdbInput
+              required [(ngModel)]="user.phone">
+            <label for="materialRegisterFormPhone">Phone</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="home" class="prefix"></mdb-icon>
+            <input name="adress" type="text" id="materialRegisterFormStreet" class="form-control" mdbValidate mdbInput
+              required [(ngModel)]="user.street">
+            <label for="materialRegisterFormStreet">Street</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="md-form">
+            <input name="adress" type="text" id="materialRegisterFormHouseNumber" class="form-control" mdbValidate
+              mdbInput required [(ngModel)]="user.house_number">
+            <label for="materialRegisterFormHouseNumber">House number</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="md-form">
+            <!-- <mdb-icon fas icon="city" class="prefix"></mdb-icon> -->
+            <input name="city" type="text" id="materialRegisterFormCity" required class="form-control" mdbValidate
+              mdbInput [(ngModel)]="user.city">
+            <label for="materialRegisterFormCity">City</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="form-row">
+        <div class="col">
+          <div class="md-form">
+            <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+            <input name="passw" type="password" id="defaultForm-pass2" class="form-control"required mdbInput mdbValidate [(ngModel)]="user.password">
+            <label data-error="wrong" data-success="right" for="defaultForm-pass2" >Your password</label>
+            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+              At least 4 characters
+            </small>
+          </div>
+        </div>
+        <div class="col">
+          <div class="md-form">
+            <input (blur)="check_pass()" name="pas" type="password" id="defaultForm-pass2" class="form-control" required mdbValidate mdbInput [(ngModel)]="pass">
+            <label data-error="wrong" data-success="right" for="defaultForm-pass2"   >Repeat password</label>
+            <small *ngIf="user.password!=pass" id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+              the passwords not the same
+            </small>
+            
+          </div>
+        </div>
+      </div> -->
+      <br>
+      <div class="text-center mb-2">
+
+        <button type="submit" (click)="t=true" (click)='startTimer()' class="btn btn-primary mb-4" mdbWavesEffect
+          [disabled]="!create_user.form.valid">
+
+          <span *ngIf="t==false">Sign Up </span>
+          <mdb-icon *ngIf="t==false" fas icon="paper-plane" class="prefix"></mdb-icon>
+
+
+          <span *ngIf="t==true" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span *ngIf="t==true"> Loading...</span>
+
+        </button>
+      </div>
+
+  <p>{{timeLeft}} Seconds Left....</p>
+      <!-- <button mdbBtn color="primary" type="button" disabled>
+        
+      </button> -->
+    </form>
+
+    <!-- <div class="text-center pb-2">
+
+      <div class="form-check pl-0 mb-3">
+        <input type="checkbox" class="form-check-input filled-in" id="new1">
+        <label class="form-check-label small text-uppercase card-link-secondary" for="new1">Subscribe to our
+          newsletter</label>
+      </div>
+
+    </div> -->
+
+    <div class="text-center mb-2">
+
+
+      <!-- <button mdbBtn type="button"  flat="true" size="lg" mdbWavesEffect>Click me</button> -->
+
+      <!-- <p>or sign up with:</p>
+
+      <a type="button" class="btn-floating btn-fb btn-sm mr-1">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a type="button" class="btn-floating btn-tw btn-sm mr-1">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a type="button" class="btn-floating btn-li btn-sm mr-1">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a type="button" class="btn-floating btn-git btn-sm">
+        <i class="fab fa-github"></i>
+      </a> -->
+
+      <hr class="mt-4">
+
+      <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+      </p>
+    </div>
+  </div>
+</div>
+<br>
+<div *ngIf="join==true" > 
+  <div class="modal-dialog modal-notify modal-success" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading lead">O.K</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="text-center">
+          <mdb-icon fas icon="check" size="4x" class="mb-3 animated rotateIn"></mdb-icon>
+          <p>נרשמת בהצלחה!!!!.</p>
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a type="button" (click)="goHome()"  mdbBtn color="success" class="waves-effect" mdbWavesEffect>לסיום
+       
+        </a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
+
+
+
+
+

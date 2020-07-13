@@ -1,0 +1,88 @@
+<br><br><br>
+<!-- Card -->
+<div class="card" style="margin-left:25%; margin-right: 25%;">
+    <div class="card-body">
+  
+      <form #invite="ngForm" >
+  
+        <h5 class="text-center mt-1 mb-4">Sign In</h5>
+
+
+        <div class="md-form md-outline">
+
+            <input name="name" id="defaultForm-pass1" mdbInput [(ngModel)]="name" required mdbValidate class="form-control" >
+            <label data-error="wrong" data-success="right" for="defaultForm-pass1">Your name</label>
+          </div>{{name}}
+          <div class="md-form md-outline">
+            <input mdbInput mdbValidate name="input" type="email" id="form8" class="form-control" [(ngModel)]="mail"
+              #input="ngModel" required pattern="[^ @]*@[^ @]*">
+            <label for="form8">Your Email</label>
+            <mdb-error *ngIf="input.invalid && (input.dirty || input.touched)">Input invalid</mdb-error>
+            <!-- <mdb-success *ngIf="input.valid && (input.dirty || input.touched)">Input valid</mdb-success> -->
+          </div>
+
+        <div class="md-form md-outline">
+            <input name="phone" mdbInput mdbValidate required  type="text" id="defaultForm-pass1" [(ngModel)]="phone"  class="form-control">
+            <label data-error="wrong" data-success="right" for="defaultForm-pass1">Your phone</label>
+          </div>
+
+        <div class="text-center pb-2">
+  
+          <button type="submit" (click)="frame.show()" [disabled]="!invite.valid" class="btn btn-primary mb-4">Sign in</button>
+  
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
+
+
+
+
+  <!-- <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
+   mdbWavesEffect>Launch Modal</button> -->
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <mdb-icon fas icon="times" size="4x" class="animated rotateIn"></mdb-icon>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center"> 
+        <button (click)="t=true" (click)="AddOrderToBranch()">
+          <!-- outline="true" -->
+               <a  mdbBtn color="danger"  class="waves-effect"
+          mdbWavesEffect>Yes</a>
+        </button>
+    {{t}}
+        <a type="button"  mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+      <!-- <div>{{IsOrder}}</div> -->
+     
+      <div *ngIf="t==true" >
+              <div *ngIf="IsOrder==false">
+        הנעל לא קיימת בשום סניף
+      </div>
+      <div *ngIf="IsOrder==true">
+        הנעל הוזמנה לסניף הנוכחי
+      </div>
+      </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
+

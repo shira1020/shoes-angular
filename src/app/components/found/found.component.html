@@ -1,0 +1,98 @@
+<!-- 
+<br><br><br><br>
+
+<div *ngIf="t==false">
+the shoe found<br>
+
+</div>
+<div *ngIf="t==true">
+ the order performed ,please wait...  
+ <br>
+ <span *ngIf="queue==1; else elseBlock">the order in the way to you</span>
+ <ng-template #elseBlock>your num in queue is {{queue}}</ng-template>
+  
+</div>
+
+
+<button (click)="basicModal.show()" >to order</button>
+
+<br><br><br>
+
+
+
+
+
+
+ -->
+
+<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
+  <div class="full-bg-img mask rgba-black-light">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3 w-100">
+        <div class="col-md-12">
+          <div class="text-center">
+    
+
+
+<!-- start -->
+
+<mdb-card style="width: 50%;height:50%;margin-left: 25%;">
+   
+  <mdb-card-body>
+    <!--Title-->
+    <mdb-card-title>
+      <h4 *ngIf="t==false" >The shoe found</h4>
+    </mdb-card-title>
+
+    <div *ngIf="t==true">
+      the order performed ,please wait...  
+      <br>
+      <span *ngIf="queue==1; else elseBlock">the order in the way to you</span>
+      <ng-template #elseBlock>your num in queue is {{queue}}</ng-template>
+       
+     </div>
+     <button (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>to order</button>
+  
+  </mdb-card-body>
+</mdb-card>
+
+<!-- end -->
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" >
+      <!-- <div  >fgfg</div> -->
+      <div color="primary"    class="modal-header" class="gradient-card-header aqua-gradient align-items-center">
+        <button type="button"  class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Material outline input -->
+<div class="md-form md-outline">
+  <input type="text" id="form1" class="form-control" mdbInput [(ngModel)]="name">
+  <label for="form1">YOUR NAME</label>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="primary" (click)="basicModal.hide()" class="btn aqua-gradient"  mdbWavesEffect  >Close</button>
+          <button (click)="AddOrderFromStock()"(click)="basicModal.hide()"  type="button" mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>Save!</button>
+   {{t}}
+
+
+ 
+        </div>
+    </div>
+  </div>
+</div>

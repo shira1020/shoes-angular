@@ -1,0 +1,114 @@
+
+ <br><br><br>
+
+    <!-- Card -->
+<div class="card" style="width: 50%;height:50%;margin-left: 25%;">
+    <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
+      <!-- Card image -->
+      <!-- <div  class="view overlay zoom" *ngFor='let item of src'>
+        <img  class="card-img-top" src="{{item.picture}}"
+          alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div> -->
+      <div  *ngIf="finish==true" class="view overlay zoom" style="width:100px;height: 100px;">
+          there are no orders now!
+        </div>
+      <!-- Card content -->
+      <div *ngIf="finish==false"  class="card-body">
+    
+        <!-- Title -->
+        <h4  class="card-title" >Card title</h4>
+        <!-- Text -->
+      
+
+        <div class="view overlay zoom" style="width:100px;height: 100px;">
+          <img  class="card-img-top" src="assets/shoes/{{order.picture}}"
+            alt="Card image cap">
+        </div>
+    
+        <div class="input-group mb-3">
+        Size: {{order.size}}
+        </div>
+    
+        <div class="input-group mb-3">
+          Color: {{order.color}}
+        </div>
+    
+        <div class="input-group mb-3">
+            Name Of Customer: {{order.name_customer}}
+        </div>
+    
+        <!-- Button -->
+        <!-- <a href="#" class="btn btn-default">Button</a> -->
+        <!-- <button type="button" class="btn btn-elegant">Elegant</button> -->
+        <!-- <a class="btn btn-unique">Button</a> -->
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
+         Stop</button>
+          <button type="button" (click)="GetOrderFromStock()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
+       Next</button>
+      </div>
+    
+    </div>
+    <!-- Card -->
+    
+
+    <!-- 2 -->
+
+    <br><br><br>
+
+    <!-- Card -->
+<div class="card" style="width: 50%;height:50%;margin-left: 25%;">
+    <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
+      <!-- Card image -->
+      <!-- <div  class="view overlay zoom" *ngFor='let item of src'>
+        <img  class="card-img-top" src="{{item.picture}}"
+          alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div> -->
+      <div  *ngIf="finish_order_from_b==true" class="view overlay zoom" style="width:100px;height: 100px;">
+          there are no orders now!
+        </div>
+      <!-- Card content -->
+      <div *ngIf="finish_order_from_b==false"  class="card-body">
+    
+        <!-- Title -->
+        <h4  class="card-title" >Card title</h4>
+        <!-- Text -->
+      
+
+        <div class="view overlay zoom" style="width:100px;height: 100px;">
+          <img  class="card-img-top" src="assets/shoes/{{order_from_branch.picture}}"
+            alt="Card image cap">
+        </div>
+    
+        <div class="input-group mb-3">
+        Size: {{order_from_branch.size}}
+        </div>
+    
+        <div class="input-group mb-3">
+          Color: {{order_from_branch.color}}
+        </div>
+    
+        <div class="input-group mb-3">
+            Name Of Customer: {{order_from_branch.name_customer}}
+        </div>
+    
+        <div class="input-group mb-3">
+          Order num: {{order_from_branch.order_id}}
+      </div>
+        <!-- Button -->
+        <!-- <a href="#" class="btn btn-default">Button</a> -->
+        <!-- <button type="button" class="btn btn-elegant">Elegant</button> -->
+        <!-- <a class="btn btn-unique">Button</a> -->
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
+         Stop</button>
+          <button type="button" (click)="GetOrderfromBranch()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
+       Next</button>
+      </div>
+    
+    </div>
+    <!-- Card -->
