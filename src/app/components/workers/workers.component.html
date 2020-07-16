@@ -1,114 +1,154 @@
+<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
+  <div class="full-bg-img mask rgba-black-light">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3 w-100">
+        <div class="col-md-12">
+          <div class="text-center">
 
- <br><br><br>
+            <mdb-card *ngIf="start==true" style="width: 50%;height:50%;margin-left: 25%;">
 
-    <!-- Card -->
-<div class="card" style="width: 50%;height:50%;margin-left: 25%;">
-    <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
-      <!-- Card image -->
-      <!-- <div  class="view overlay zoom" *ngFor='let item of src'>
+              <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                  <h4>שלום</h4>
+                </mdb-card-title>
+
+                <!--Text-->
+                <mdb-card-text> בחר את הפעולה המבוקשת
+                </mdb-card-text>
+
+                <button (click)="showCurrent()" mdbBtn color="primary" class="btn aqua-gradient" mdbWavesEffect> request
+                  from current branch</button>
+                <button (click)="showOthers()" mdbBtn color="primary" class="btn aqua-gradient" mdbWavesEffect> request
+                  from others branches</button>
+              </mdb-card-body>
+            </mdb-card>
+
+
+            <!-- Card -->
+            <mdb-card *ngIf="cur==true" style="width:50%;height:50%px;margin-left: 25%;">
+              <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
+              <!-- Card image -->
+              <!-- <div  class="view overlay zoom" *ngFor='let item of src'>
         <img  class="card-img-top" src="{{item.picture}}"
           alt="Card image cap">
         <a href="#!">
           <div class="mask rgba-white-slight"></div>
         </a>
       </div> -->
-      <div  *ngIf="finish==true" class="view overlay zoom" style="width:100px;height: 100px;">
-          there are no orders now!
-        </div>
-      <!-- Card content -->
-      <div *ngIf="finish==false"  class="card-body">
-    
-        <!-- Title -->
-        <h4  class="card-title" >Card title</h4>
-        <!-- Text -->
-      
+              <div color="primary" class="modal-header" class="gradient-card-header aqua-gradient align-items-center">
+                <button type="button" class="close pull-right" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
 
-        <div class="view overlay zoom" style="width:100px;height: 100px;">
-          <img  class="card-img-top" src="assets/shoes/{{order.picture}}"
-            alt="Card image cap">
-        </div>
-    
-        <div class="input-group mb-3">
-        Size: {{order.size}}
-        </div>
-    
-        <div class="input-group mb-3">
-          Color: {{order.color}}
-        </div>
-    
-        <div class="input-group mb-3">
-            Name Of Customer: {{order.name_customer}}
-        </div>
-    
-        <!-- Button -->
-        <!-- <a href="#" class="btn btn-default">Button</a> -->
-        <!-- <button type="button" class="btn btn-elegant">Elegant</button> -->
-        <!-- <a class="btn btn-unique">Button</a> -->
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
-         Stop</button>
-          <button type="button" (click)="GetOrderFromStock()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
-       Next</button>
-      </div>
-    
-    </div>
-    <!-- Card -->
-    
+                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+              </div>
+              <div *ngIf="finish==true" class="view overlay zoom" style="width:100px;height: 100px;">
+                there are no orders now!
+              </div>
+              <!-- Card content -->
+              <div *ngIf="finish==false" class="card-body">
 
-    <!-- 2 -->
 
-    <br><br><br>
+                <!-- Text -->
 
-    <!-- Card -->
-<div class="card" style="width: 50%;height:50%;margin-left: 25%;">
-    <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
-      <!-- Card image -->
-      <!-- <div  class="view overlay zoom" *ngFor='let item of src'>
+                <!-- class="view overlay zoom"  -->
+                <div style="float: right;">
+                  <img class="card-img-top" style="width:60%;height:60%;" src="assets/shoes/{{order.picture}}"
+                    alt="shoe">
+                </div>
+
+                <div class="input-group mb-3">
+                  Size: {{order.size}}
+                </div>
+
+                <div class="input-group mb-3">
+                  Color: {{order.color}}
+                </div>
+
+                <div class="input-group mb-3">
+                  Name Of Customer: {{order.name_customer}}
+                </div>
+
+                <button type="button" mdbBtn color="primary" (click)="showStart()" class="btn aqua-gradient"
+                  mdbWavesEffect>
+                  Stop</button>
+                <button type="button" (click)="GetOrderFromStock()" class="btn aqua-gradient" mdbBtn color="primary"
+                  mdbWavesEffect>
+                  Next</button>
+              </div>
+            </mdb-card>
+            <!-- Card -->
+
+
+            <!-- 2 -->
+
+            
+
+            <!-- Card -->
+            <mdb-card *ngIf="oth==true" class="card" style="width: 50%;height:50%;margin-left: 25%;">
+              <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
+              <!-- Card image -->
+              <!-- <div  class="view overlay zoom" *ngFor='let item of src'>
         <img  class="card-img-top" src="{{item.picture}}"
           alt="Card image cap">
         <a href="#!">
           <div class="mask rgba-white-slight"></div>
         </a>
       </div> -->
-      <div  *ngIf="finish_order_from_b==true" class="view overlay zoom" style="width:100px;height: 100px;">
-          there are no orders now!
-        </div>
-      <!-- Card content -->
-      <div *ngIf="finish_order_from_b==false"  class="card-body">
-    
-        <!-- Title -->
-        <h4  class="card-title" >Card title</h4>
-        <!-- Text -->
-      
+              <div color="primary" class="modal-header" class="gradient-card-header aqua-gradient align-items-center">
+                <button type="button" class="close pull-right" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
 
-        <div class="view overlay zoom" style="width:100px;height: 100px;">
-          <img  class="card-img-top" src="assets/shoes/{{order_from_branch.picture}}"
-            alt="Card image cap">
+                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+              </div>
+              <div *ngIf="finish_order_from_b==true" class="view overlay zoom" style="width:100px;height: 100px;">
+                there are no orders now!
+              </div>
+              <!-- Card content -->
+              <div *ngIf="finish_order_from_b==false" class="card-body">
+
+              
+                <!-- Text -->
+
+ <!-- class="view overlay zoom"  -->
+                <div style="float: right;" >
+                  <img class="card-img-top" style="width:60%;height: 60%;" src="assets/shoes/{{order_from_branch.picture}}" alt="shoeFromOtherBranch">
+                </div>
+
+                <div class="input-group mb-3">
+                  Size: {{order_from_branch.size}}
+                </div>
+
+                <div class="input-group mb-3">
+                  Color: {{order_from_branch.color}}
+                </div>
+
+                <div class="input-group mb-3">
+                  Name Of Customer: {{order_from_branch.name_customer}}
+                </div>
+
+                <div class="input-group mb-3">
+                  Order num: {{order_from_branch.order_id}}
+                </div>
+                <!-- Button -->
+                <!-- <a href="#" class="btn btn-default">Button</a> -->
+                <!-- <button type="button" class="btn btn-elegant">Elegant</button> -->
+                <!-- <a class="btn btn-unique">Button</a> -->
+                <button type="button" (click)="showStart()" mdbBtn color="primary" class="btn aqua-gradient" mdbWavesEffect>
+                  Stop</button>
+                <button type="button" (click)="GetOrderfromBranch()" class="btn aqua-gradient" mdbBtn color="primary" 
+                  mdbWavesEffect>
+                  Next</button>
+              </div>
+            </mdb-card>
+            <!-- Card -->
+
+
+          </div>
         </div>
-    
-        <div class="input-group mb-3">
-        Size: {{order_from_branch.size}}
-        </div>
-    
-        <div class="input-group mb-3">
-          Color: {{order_from_branch.color}}
-        </div>
-    
-        <div class="input-group mb-3">
-            Name Of Customer: {{order_from_branch.name_customer}}
-        </div>
-    
-        <div class="input-group mb-3">
-          Order num: {{order_from_branch.order_id}}
       </div>
-        <!-- Button -->
-        <!-- <a href="#" class="btn btn-default">Button</a> -->
-        <!-- <button type="button" class="btn btn-elegant">Elegant</button> -->
-        <!-- <a class="btn btn-unique">Button</a> -->
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
-         Stop</button>
-          <button type="button" (click)="GetOrderfromBranch()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>
-       Next</button>
-      </div>
-    
     </div>
-    <!-- Card -->
+  </div>
+</div>

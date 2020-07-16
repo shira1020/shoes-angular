@@ -1,11 +1,17 @@
-<br><br><br>
+<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
+  <div class="full-bg-img mask rgba-black-light">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3 w-100">
+        <div class="col-md-12">
+          <div class="text-center">
+
 <!-- Card -->
-<div class="card" style="margin-left:25%; margin-right: 25%;">
-    <div class="card-body">
+<div class="card" style="margin-left:20%; margin-right: 20%;">
+    <!-- <div class="card-body"> -->
+    <h5 style="height: 100%;" class="aqua-gradient" >Sign In</h5>
+      <form #invite="ngForm" style="margin-right: 20%;margin-left: 20%;" >
   
-      <form #invite="ngForm" >
-  
-        <h5 class="text-center mt-1 mb-4">Sign In</h5>
+      
 
 
         <div class="md-form md-outline">
@@ -28,13 +34,13 @@
 
         <div class="text-center pb-2">
   
-          <button type="submit" (click)="frame.show()" [disabled]="!invite.valid" class="btn btn-primary mb-4">Sign in</button>
+          <button type="submit" (click)="frame.show()" [disabled]="!invite.valid"  class="btn aqua-gradient">Sign in</button>
   
         </div>
   
       </form>
   
-    </div>
+    <!-- </div> -->
   </div>
 
 
@@ -60,7 +66,7 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center"> 
-        <button (click)="t=true" (click)="AddOrderToBranch()">
+        <button  class="btn aqua-gradient" (click)="t=true" (click)="AddOrderToBranch()">
           <!-- outline="true" -->
                <a  mdbBtn color="danger"  class="waves-effect"
           mdbWavesEffect>Yes</a>
@@ -84,5 +90,10 @@
   </div>
 </div>
 
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 

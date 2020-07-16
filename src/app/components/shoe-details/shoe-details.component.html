@@ -1,95 +1,77 @@
-
 <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
   <div class="full-bg-img mask rgba-black-light">
     <div class="container flex-center">
       <div class="row pt-5 mt-3 w-100">
         <div class="col-md-12">
           <div class="text-center">
-    
 
 
-<!-- start -->
 
-<!-- Card -->
+            <!-- start -->
 
-  
-<div class="card" style="width: 50%;height:50%;margin-left: 25%;">
-  <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
-    <!-- Card image -->
-    <!-- <div  class="view overlay zoom" > -->
-      <img  class="card-img-top" style="width:100px;height: 100px;" src="assets/shoes/{{src}}"
-        alt="Card image cap">
-      <!-- <a href="#!">
+            <!-- Card -->
+
+
+           
+              <!-- <a href="#!">
         <div class="mask rgba-white-slight"></div>
       </a> -->
-    <!-- </div> -->
-  
-    <!-- Card content -->
-    <div class="card-body">
-  
-      <!-- Title -->
-      <h4  class="card-title" >Card title</h4>
-      <!-- Text -->
+              <!-- </div> -->
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Size</label>
-      </div>
-  
-  
-        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mysize">
-  
-          <option *ngFor="let size of sizes" [ngValue]="size" value="">{{size}}</option>
-        </select>
-      </div>
-      <!-- {{mysize}} -->
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Color</label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mycolor">
-          <option disabled selected> choose</option>
-          <option *ngFor="let color of colors" value="" [ngValue]="color">{{color}}</option>
-        </select>    
-        <!-- {{mycolor}} -->
-      </div>
-      <!-- Button -->
-      <!-- <a href="#" class="btn btn-default">Button</a> -->
-      <!-- <button type="button" class="btn btn-elegant">Elegant</button>" -->
-      <!-- <a class="btn btn-unique">Button</a> -->
-      <button (click)="IsFoundInStock()" type="button" mdbBtn color="primary" class="btn aqua-gradient"   mdbWavesEffect>
-        CHECK IN STOCK</button>
-        {{t}}
-    </div>
-  </div>
-  <!-- Card -->
+              <!-- Card content -->
+              <div class="card-body">
 
-<!-- end -->
-      
+                <!-- Title -->
+                
+
+              <div class="card" style="width: 50%;height:50%;margin-left: 25%;">
+                <h4 class="aqua-gradient" >Your Shoe Details</h4> 
+              <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
+              <!-- Card image -->
+              <!-- <div  class="view overlay zoom" > -->
+              <img class="card-img-top" style="width:100px;height: 100px;" src="assets/shoes/{{shoe.img}}"
+                alt="Card image cap">
+                <!-- Text -->
+                price: {{shoe.price}}
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Size</label>
+                  </div>
+
+                  <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mysize">
+
+                    <option *ngFor="let size of shoe.sizes" [ngValue]="size" value="">{{size}}</option>
+                  </select>
+                </div>
+                <!-- {{mysize}} -->
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Color</label>
+                  </div>
+                  <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mycolor">
+                    <option disabled selected> choose</option>
+                    <option *ngFor="let color of shoe.colors" value="" [ngValue]="color">{{color}}</option>
+                  </select>
+                  <!-- {{mycolor}} -->
+                </div>
+                <!-- Button -->
+                <!-- <a href="#" class="btn btn-default">Button</a> -->
+                <!-- <button type="button" class="btn btn-elegant">Elegant</button>" -->
+                <!-- <a class="btn btn-unique">Button</a> -->
+                <button (click)="IsFoundInStock()" type="button" mdbBtn color="primary" class="btn aqua-gradient"
+                  mdbWavesEffect>
+                  CHECK IN STOCK</button>
+                {{t}}
+              </div>
+            </div>
+            <!-- Card -->
+
+            <!-- end -->
+
           </div>
         </div>
       </div>
     </div>
   </div>
-</div> 
-
-
-
-    
-    
-    
-
-
-    
-    <!-- <div class="btn-group" mdbDropdown>
-      <button type="button" mdbBtn color="danger" class="waves-light" mdbWavesEffect>hhh</button>
-      <button type="button" mdbDropdownToggle mdbBtn color="danger" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
-        mdbWavesEffect></button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" >Action</a>
-        <a class="dropdown-item" >Another action</a>
-        <a class="dropdown-item" >Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" >Separated link</a>
-      </div>
-    </div> -->
+</div>

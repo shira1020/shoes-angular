@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoesService } from 'src/app/services/shoes.service';
 import { OrderFromStockService } from 'src/app/services/order-from-stock.service';
+import { shoeDetails } from 'src/app/models/shoeDetails';
 
 @Component({
   selector: 'app-shoe-details',
@@ -10,6 +11,7 @@ import { OrderFromStockService } from 'src/app/services/order-from-stock.service
 })
 export class ShoeDetailsComponent implements OnInit {
 
+  shoe:shoeDetails=new shoeDetails();
   id:number;
   src:string; 
   name:string="";
@@ -23,9 +25,10 @@ export class ShoeDetailsComponent implements OnInit {
   
     ngOnInit(): void {
       this.id=+this.activatedRoute.snapshot.paramMap.get('id');
-      this.shoes.GetImageById(+this.id).subscribe((data: string) => { this.src= data });
-      this.shoes.GetColorsById(+this.id).subscribe((data:string[])=>{this.colors=data});
-      this.shoes.GetSizesById(+this.id).subscribe((data:number[])=>{this.sizes=data});
+      this.shoes.GetDetailsById(+this.id).subscribe((data:shoeDetails)=>{this.shoe=data});
+      // this.shoes.GetImageById(+this.id).subscribe((data: string) => { this.src= data });
+      // this.shoes.GetColorsById(+this.id).subscribe((data:string[])=>{this.colors=data});
+      // this.shoes.GetSizesById(+this.id).subscribe((data:number[])=>{this.sizes=data});
     }
   t:boolean=false;
     IsFoundInStock()

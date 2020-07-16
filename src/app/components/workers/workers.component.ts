@@ -23,14 +23,17 @@ export class WorkersComponent implements OnInit {
   finish_order_from_b = false;
   order: OrderDetails = new OrderDetails();
   order_from_branch: OrderDetails = new OrderDetails();
+  cur: boolean = false;
+  oth: boolean = false;
+  start: boolean = true;
   constructor(private activatedRoute: ActivatedRoute, private shoes: ShoesService, private order_from: OrderFromStockService, private order_from_b: OrderFromBranchService) { }
 
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     // this.shoes.get_shoe_by_id(this.id).subscribe((data: string[][]) => { this.src= data });
-    this.GetOrderFromStock();
-    this. GetOrderfromBranch();
+
+
   }
 
   GetOrderFromStock() {
@@ -49,5 +52,25 @@ export class WorkersComponent implements OnInit {
       else
         this.finish_order_from_b = true;
     })
+  }
+
+  showCurrent() {
+    this.start = false;
+    this.cur = true;
+    this.GetOrderFromStock();
+    // this.oth=false;
+  }
+
+  showOthers() {
+    this.start = false;
+    this.oth = true;
+    this.GetOrderfromBranch();
+    // this.cur=false;
+  }
+
+  showStart() {
+    this.start = true;
+    this.cur = false;
+    this.oth = false;
   }
 }

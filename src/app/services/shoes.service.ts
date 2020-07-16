@@ -25,6 +25,10 @@ export class ShoesService {
     return this.http.get(environment.api+'Shoes/GetSizesById/'+id);
   }
 
+  GetDetailsById(id:number)
+  {
+  return this.http.get(environment.api+'Shoes/GetDetailsById/'+id);
+  }
   IsFoundInStock(id_shoe:number,size:number,color:string)
   {
     return this.http.get(environment.api+'Stock/IsFoundInStock/'+id_shoe+'/'+this.employee.my_branch+'/'+size+'/'+color);
