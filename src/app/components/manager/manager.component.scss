@@ -1,21 +1,60 @@
 
   
   .pink-lighter-hover {
-    color: #ec407a;
+    color: #40ecde;
     -webkit-transition: .4s;
     transition: .4s; }
   .pink-lighter-hover:hover {
     -webkit-transition: .4s;
     transition: .4s;
-    color: #f386aa; }
+    color: #43b98c; }
   
   .pink-darker-hover {
-    color: #ec407a;
+    color: #40ecaa;
     -webkit-transition: .4s;
     transition: .4s; }
   .pink-darker-hover:hover {
     -webkit-transition: .4s;
     transition: .4s;
-    color: #cb1452; }
+    color: #14cb9d; }
   
+    html,body{
+      width: 100%;
+      height: 100%;
+  }
+  .intro-header {
+      height: unset !important;
+    }
+    .top-nav-collapse {
+      background-color: #78909c !important;
+    }
+    .view {
+      height: 100vh !important;
+    }
+    .navbar:not(.top-nav-collapse) {
+      background: transparent !important;
+    }
+    @media (max-width: 768px) {
+      .navbar:not(.top-nav-collapse) {
+        background: #78909c !important;
+      }
+    }
+    h1 {
+      letter-spacing: 8px;
+    }
+    h5 {
+      letter-spacing: 3px;
+    }
+    .hr-light {
+      border-top: 3px solid #fff;
+      width: 80px;
+    }
+    @media (max-width: 740px) {
+      .full-height,
+      .full-height body,
+      .full-height header,
+      .full-height header .view {
+        height: 700px;
+      }
+    }
   

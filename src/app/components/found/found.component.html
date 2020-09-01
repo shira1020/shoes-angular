@@ -51,7 +51,7 @@ the shoe found<br>
       <ng-template #elseBlock>your num in queue is {{queue}}</ng-template>
        
      </div>
-     <button (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>to order</button>
+     <button *ngIf="t==false" (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>to order</button>
   
   </mdb-card-body>
 </mdb-card>
