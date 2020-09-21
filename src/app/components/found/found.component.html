@@ -41,17 +41,19 @@ the shoe found<br>
   <mdb-card-body>
     <!--Title-->
     <mdb-card-title>
-      <h4 *ngIf="t==false" >The shoe found</h4>
+      <h4 *ngIf="stock_id==0" >The shoe found</h4>
     </mdb-card-title>
 
-    <div *ngIf="t==true">
+    <div *ngIf="stock_id!=0">
+      your order code: {{1000+stock_id}}
+      <br>
       the order performed ,please wait...  
       <br>
       <span *ngIf="queue==1; else elseBlock">the order in the way to you</span>
       <ng-template #elseBlock>your num in queue is {{queue}}</ng-template>
        
      </div>
-     <button *ngIf="t==false" (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>to order</button>
+     <button *ngIf="stock_id==0" (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>to order</button>
   
   </mdb-card-body>
 </mdb-card>
@@ -87,8 +89,8 @@ the shoe found<br>
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="primary" (click)="basicModal.hide()" class="btn aqua-gradient"  mdbWavesEffect  >Close</button>
-          <button (click)="AddOrderFromStock()"(click)="basicModal.hide()"  type="button" mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>Save!</button>
-   {{t}}
+          <button (click)="AddOrderToStock()"(click)="basicModal.hide()"  type="button" mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>Save!</button>
+  
 
 
  

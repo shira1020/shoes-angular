@@ -12,28 +12,29 @@
             <!-- Card -->
 
 
-           
-              <!-- <a href="#!">
+
+            <!-- <a href="#!">
         <div class="mask rgba-white-slight"></div>
       </a> -->
-              <!-- </div> -->
+            <!-- </div> -->
 
-              <!-- Card content -->
-              <div class="card-body">
+            <!-- Card content -->
+            <div class="card-body">
 
-                <!-- Title -->
-                
-
-              <div class="card" style="width: 50%;height:50%;margin-left: 25%;">
-                <h4 class="aqua-gradient" >Your Shoe Details</h4> 
-              <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
-              <!-- Card image -->
-              <!-- <div  class="view overlay zoom" > -->
-              <img class="card-img-top" style="width:100px;height: 100px;" src="assets/shoes/{{shoe.img}}"
-                alt="Card image cap">
+              <!-- Title -->
+              <div class="style-1" class="card"  style="width: 50%;height:50%;margin-left: 25%;" >
+                <h4 class="aqua-gradient">Your Shoe Details</h4>
+                <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
+                <!-- Card image -->
+                <!-- <div  class="view overlay zoom" > -->
+                <img class="card-img-top" style="width:100px;height: 100px;" src="assets/shoes/{{shoe.img}}"
+                  alt="Card image cap">
                 <!-- Text -->
-                price: {{shoe.price}}
-
+                price: <del><span class="amount">{{shoe.price}}</span></del>
+                sale price: <ins><span class="amount">{{shoe.salePrice}} </span></ins>
+               
+                <br>
+                sale: {{shoe.saleName}}
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Size</label>

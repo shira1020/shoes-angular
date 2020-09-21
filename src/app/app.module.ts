@@ -19,6 +19,7 @@ import { ManagerComponent } from './components/manager/manager.component';
 import { NotFoundShoeComponent } from './components/not-found-shoe/not-found-shoe.component';
 import { PayComponent } from './components/pay/pay.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
     ManagerComponent,
     NotFoundShoeComponent,
     PayComponent,
+    SearchByCategoryComponent,
 
    ],
   imports: [

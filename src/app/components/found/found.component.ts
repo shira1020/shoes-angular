@@ -12,15 +12,15 @@ export class FoundComponent implements OnInit {
 
   constructor(private activatedRoute :ActivatedRoute,private orderfromstock:OrderFromStockService) { }
 name:string;
-t:boolean=false;
+stock_id:number=0;
 queue:number;
   ngOnInit(): void {
     // this.name=this.activatedRoute.snapshot.paramMap.get('name');
   }
-  AddOrderFromStock()
+  AddOrderToStock()
   {
     this.orderfromstock.name=this.name;
-    this.orderfromstock.AddOrderFromStock().subscribe((data:boolean)=>{this.t=data});
+    this.orderfromstock.AddOrderToStock().subscribe((data:number)=>{this.stock_id=data});
     this.orderfromstock.GetNumInQueue().subscribe((data:number)=>{this.queue=data});
   }
 

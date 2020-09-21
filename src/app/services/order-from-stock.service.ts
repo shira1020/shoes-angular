@@ -14,10 +14,10 @@ export class OrderFromStockService {
   name:string;
   constructor(private http:HttpClient, private employee:EmployeeService) { }
 
-  AddOrderFromStock()
+  AddOrderToStock()
   {
     // const o={id_shoe:,id_branch:,size:,color:,name:this.name};
-   return this.http.post(environment.api+'OrderFromStock/AddOrderFromStock/'
+   return this.http.post(environment.api+'OrderFromStock/AddOrderToStock/'
     +this.current_id_shoe+'/'+this.employee.my_branch+'/'+this.current_size+'/'+this.current_color+'/'+this.name,0);
   }
 

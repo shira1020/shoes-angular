@@ -3,6 +3,8 @@ export class shoeDetails {
     colors: string[];
     sizes:number[];
     price:number;
+    salePrice:number;
+    saleName:string;
     constructor() { };
 
 
