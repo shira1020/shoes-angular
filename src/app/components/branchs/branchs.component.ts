@@ -16,5 +16,4 @@ export class BranchsComponent implements OnInit {
     if(this.branches[0][0]!=null)
     this.t=true;
   }
-
 }
