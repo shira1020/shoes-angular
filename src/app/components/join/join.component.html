@@ -1,6 +1,6 @@
 <!-- code:<input type=text [(ngModel)]="code">
 <button (click)="check()">save</button> -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
   <div class="full-bg-img mask rgba-black-light">
     <div class="container flex-center">
@@ -92,16 +92,21 @@
                   <div class="col">
                     <div class="md-form">
                       <!-- <mdb-icon fas icon="city" class="prefix"></mdb-icon> -->
-                      <input name="city" type="text" id="materialRegisterFormCity" required class="form-control"
-                        mdbValidate mdbInput [(ngModel)]="user.city">   
-                         <label for="materialRegisterFormCity">City</label>
-                      <select class="mdb-select md-form" searchable="Search here..">
-                        <option value="" disabled selected>Choose your country</option>
-                        <option value="1" *ngFor="let item of cities">{{item}}</option>
-                      </select>
+                      <input list="brow" name="city" type="text" id="materialRegisterFormCity" required class="form-control"
+                        mdbValidate mdbInput [(ngModel)]="user.city">
+                      <label for="materialRegisterFormCity">City</label>
+                      <datalist id="brow">
+                        <option  *ngFor="let item of cities" value={{item}}>
+                      </datalist>
                     </div>
                   </div>
                 </div>
+
+              
+
+
+
+
                 <br>
                 <div class="text-center mb-2">
                   <button type="submit" (click)="t=true" (click)='startTimer()' class="btn aqua-gradient" mdbWavesEffect
