@@ -19,11 +19,8 @@ import { ManagerComponent } from './components/manager/manager.component';
 import { NotFoundShoeComponent } from './components/not-found-shoe/not-found-shoe.component';
 import { PayComponent } from './components/pay/pay.component';
 import { NgxPayPalModule } from 'ngx-paypal';
-<<<<<<< HEAD
-import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
-=======
+//import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
 import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
->>>>>>> a1ea566d66609a342cdfefe2c43e1e960bbeadfb
 
 @NgModule({
   declarations: [
@@ -39,11 +36,8 @@ import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
     ManagerComponent,
     NotFoundShoeComponent,
     PayComponent,
-<<<<<<< HEAD
-    SearchByCategoryComponent,
-=======
+    //SearchByCategoryComponent,
     AddShoeComponent,
->>>>>>> a1ea566d66609a342cdfefe2c43e1e960bbeadfb
 
    ],
   imports: [
