@@ -5,8 +5,8 @@ export class Shoe {
     kind: number;
     idsale: number;
     price: number;
-    fromsize: number;
-    tosize: number;
+    from_size: number;
+    to_size: number;
     idcolor: number;
     constructor() { } 
 }

@@ -1,3 +1,15 @@
-<p>add-shoe works!</p>
-hello sari
-jkjkjk
+<h1>add-shoe</h1>
+picture:<input
+  type="file" 
+  #fileInput [(ngModel)]="shoe.picture">
+<!-- <button (click)="fileInput.click()">Select file</button> -->
+model:<input type="text"  [(ngModel)]="shoe.model"><br>
+<!-- picture:<input type="file"  ><br> -->
+kind:<input type="text"  [(ngModel)]="shoe.kind"><br>
+price:<input type="text"  [(ngModel)]="shoe.price"><br>
+fromsise:<input type="text"   [(ngModel)]="shoe.from_size"><br>
+tosize:<input type="text"  [(ngModel)]="shoe.to_size"><br>
+<button (click)="OnUpload()">Upload!</button><br>
+
+  <!-- style="display: none" -->
+  <!-- (change)="onFileChanged($event)" -->
