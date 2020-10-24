@@ -33,6 +33,10 @@ export class ShoesService {
   {
     return this.http.get(environment.api+'Stock/IsFoundInStock/'+id_shoe+'/'+this.employee.my_branch+'/'+size+'/'+color);
   }
+  GetColors()
+  {
+    return this.http.get(environment.api+'Shoes/GetColors/');
+  }
 }
 
 

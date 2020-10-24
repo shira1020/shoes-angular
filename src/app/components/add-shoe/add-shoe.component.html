@@ -1,15 +1,52 @@
-<h1>add-shoe</h1>
-picture:<input
-  type="file" 
-  #fileInput [(ngModel)]="shoe.picture">
-<!-- <button (click)="fileInput.click()">Select file</button> -->
-model:<input type="text"  [(ngModel)]="shoe.model"><br>
-<!-- picture:<input type="file"  ><br> -->
-kind:<input type="text"  [(ngModel)]="shoe.kind"><br>
-price:<input type="text"  [(ngModel)]="shoe.price"><br>
-fromsise:<input type="text"   [(ngModel)]="shoe.from_size"><br>
-tosize:<input type="text"  [(ngModel)]="shoe.to_size"><br>
-<button (click)="OnUpload()">Upload!</button><br>
+<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
+  <div class="full-bg-img mask rgba-black-light">
+    <div class="container flex-center">
+      <div class="row pt-5 mt-3 w-100">
+        <div class="col-md-12">
+          <div class="text-center">
+            <div class="card-body">
 
-  <!-- style="display: none" -->
-  <!-- (change)="onFileChanged($event)" -->
+              <!-- Title -->
+              <!-- <div class="style-1" class="card"  style="width: 50%;height:50%;margin-left: 25%;" > -->
+
+
+
+              <h1>add-shoe</h1>
+              picture:<input type="file" #fileInput [(ngModel)]="shoe.picture"><br>
+              <!-- <button (click)="fileInput.click()">Select file</button> -->
+              model:<input type="text" [(ngModel)]="shoe.model"><br>
+              <!-- picture:<input type="file"  ><br> -->
+              kind:<input type="text" [(ngModel)]="shoe.kind"><br>
+              price:<input type="text" [(ngModel)]="shoe.price"><br>
+              fromsise:<input type="text" [(ngModel)]="shoe.from_size"><br>
+              tosize:<input type="text" [(ngModel)]="shoe.to_size"><br>
+
+              <!-- Default checked -->
+              <!-- <div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked>
+  <label class="custom-control-label" for="defaultChecked2">Default checked</label>
+</div> -->
+              <!-- Default indeterminate -->
+              <!-- <div *ngFor="let color of colors">
+                <mdb-checkbox [indeterminate]="false" [default]="true">{{color}}</mdb-checkbox>
+              </div> -->
+              <select class="custom-select" [(ngModel)]="shoe.colors" multiple>
+                <option *ngFor="let color of colors" [value]="color.id_color">{{color.color}}</option>
+              </select>
+              <!-- color:<select type="F" class="custom-select">
+                <option disabled selected> choose</option>
+                <option *ngFor="let color of colors" value="" [ngValue]="color">{{color}}</option>
+              </select> -->
+              <button (click)="OnUpload()">Upload!</button><br>
+              {{upload}}
+              <!-- style="display: none" -->
+              <!-- (change)="onFileChanged($event)" -->
+
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
