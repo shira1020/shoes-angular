@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ShoesService } from 'src/app/services/shoes.service';
-import { OrderDetails } from 'src/app/OrderDetails';
+import { OrderDetails } from 'src/app/models/OrderDetails';
 import { OrderFromStockService } from 'src/app/services/order-from-stock.service';
 import { OrderFromBranchService } from 'src/app/services/order-from-branch.service';
 

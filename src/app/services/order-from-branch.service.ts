@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { OrderDetails } from '../OrderDetails';
+import { OrderDetails } from '../models/OrderDetails';
 import { EmployeeService } from './employee.service';
 import { OrderFromStockService } from './order-from-stock.service';
 import { environment } from 'src/environments/environment';
