@@ -20,20 +20,22 @@ shoe:Shoe=new Shoe();
   //   this.selectedFile = event.target.File[5]
   //   console.log(File);
   // }
-colors:Color[]=[];
+allColors:Color[]=[];
+chooseColors:number[]=[];
 upload:string="";
 isupload:boolean=false;
 OnUpload() {
   const fd=new FormData();
 // my-backend.com/file-upload
-  console.log(this.shoe.colors);
-     this.stock.OnUpload(this.shoe).subscribe((data:boolean) => {this.isupload=data
+  console.log(this.chooseColors);
+     this.stock.OnUpload(this.shoe,this.chooseColors).subscribe((data:boolean) => {this.isupload=data
       if(this.isupload==true)
 this.upload="The shoe has been successfully updated"
         console.log(this.isupload); // handle event here
       });  }
+      
   ngOnInit(): void {
-    this.shoeservice.GetColors().subscribe((data:Color[])=>{this.colors=data});
+    this.shoeservice.GetColors().subscribe((data:Color[])=>{this.allColors=data});
   }
 
 }

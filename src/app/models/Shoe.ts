@@ -7,6 +7,6 @@ export class Shoe {
     price: number;
     from_size: number;
     to_size: number;
-    colors: number[];
+    //colors: number[];
     constructor() { } 
 }

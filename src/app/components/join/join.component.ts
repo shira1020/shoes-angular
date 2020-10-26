@@ -44,7 +44,6 @@ export class JoinComponent implements OnInit {
   }
   Getcities() {
     this.brunch.Getcities().subscribe((data: any) => {
-
       this.cities = data.result.records.map(city => city.Name)
       console.log(this.cities);
     });

@@ -13,11 +13,14 @@
 
               <h1>add-shoe</h1>
               picture:<input type="file" #fileInput [(ngModel)]="shoe.picture"><br>
+              
+              <img *ngIf="shoe.picture!=null" src="{{shoe.picture}}" width="100" height="50" alt="Image preview...">
+          
               <!-- <button (click)="fileInput.click()">Select file</button> -->
               model:<input type="text" [(ngModel)]="shoe.model"><br>
               <!-- picture:<input type="file"  ><br> -->
-              kind:<input type="text" [(ngModel)]="shoe.kind"><br>
-              price:<input type="text" [(ngModel)]="shoe.price"><br>
+              kind:<input type="text" [(ngModel)]="shoe.kind"><br>{{shoe.kind}}
+              price:<input type="text" [(ngModel)]="shoe.price"><br>{{shoe.price}}
               fromsise:<input type="text" [(ngModel)]="shoe.from_size"><br>
               tosize:<input type="text" [(ngModel)]="shoe.to_size"><br>
 
@@ -30,8 +33,8 @@
               <!-- <div *ngFor="let color of colors">
                 <mdb-checkbox [indeterminate]="false" [default]="true">{{color}}</mdb-checkbox>
               </div> -->
-              <select class="custom-select" [(ngModel)]="shoe.colors" multiple>
-                <option *ngFor="let color of colors" [value]="color.id_color">{{color.color}}</option>
+              <select class="custom-select" [(ngModel)]="chooseColors" multiple>
+                <option *ngFor="let color of allColors" [value]="color.id_color">{{color.color}}</option>
               </select>
               <!-- color:<select type="F" class="custom-select">
                 <option disabled selected> choose</option>

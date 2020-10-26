@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { OrderFromStockService } from './order-from-stock.service';
 import { templateJitUrl } from '@angular/compiler';
 import { Shoe } from '../models/Shoe';
+import { Color } from '../models/Color';
+import { addShoe } from '../models/addShoe';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,12 @@ export class StockService {
     return this.http.get(environment.api + 'Stock/GetBranchesByShoe/' +
       this.orderservice.current_id_shoe + '/' + this.orderservice.current_size + '/' + this.orderservice.current_color);
   }
-  OnUpload(shoe:Shoe) {
-    return this.http.post(environment.api + 'Shoes/OnUpload/' ,shoe);
+ 
+  OnUpload(shoe:Shoe,colors:number[]) { 
+    const s:addShoe=new addShoe();
+    s.colors=colors;
+    s.shoe=shoe;
+    return this.http.post(environment.api + 'Shoes/OnUpload/' ,s);
   }
 
 }
