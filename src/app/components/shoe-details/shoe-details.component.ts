@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ShoesService } from 'src/app/services/shoes.service';
 import { OrderFromStockService } from 'src/app/services/order-from-stock.service';
 import { shoeDetails } from 'src/app/models/shoeDetails';
-
 @Component({
   selector: 'app-shoe-details',
   templateUrl: './shoe-details.component.html',
@@ -22,10 +21,18 @@ export class ShoeDetailsComponent implements OnInit {
   is_found:boolean=false;
   constructor(private activatedRoute :ActivatedRoute, private router1: Router,private shoes:ShoesService,
   private order_from_stock:OrderFromStockService) { }
-  
+   isNumeric = (val: number) : boolean => {
+    return !isNaN(Number(val));
+ }
+ 
     ngOnInit(): void {
       this.id=+this.activatedRoute.snapshot.paramMap.get('id');
-      this.shoes.GetDetailsById(+this.id).subscribe((data:shoeDetails)=>{this.shoe=data});
+      if(!this.isNumeric(this.id))
+      this.router1.navigate(["/home"]);
+      this.shoes.GetDetailsById(+this.id).subscribe((data:shoeDetails)=>{this.shoe=data;
+      if(this.shoe==null)
+      this.router1.navigate(["/home"]);
+      });
       // this.shoes.GetImageById(+this.id).subscribe((data: string) => { this.src= data });
       // this.shoes.GetColorsById(+this.id).subscribe((data:string[])=>{this.colors=data});
       // this.shoes.GetSizesById(+this.id).subscribe((data:number[])=>{this.sizes=data});

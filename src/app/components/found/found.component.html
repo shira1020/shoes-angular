@@ -25,7 +25,7 @@ the shoe found<br>
 
  -->
 
-<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/222.jpg);">
+<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/design/background.jpg);">
   <div class="full-bg-img mask rgba-black-light">
     <div class="container flex-center">
       <div class="row pt-5 mt-3 w-100">
@@ -49,7 +49,7 @@ the shoe found<br>
       <br>
       the order performed ,please wait...  
       <br>
-      <span *ngIf="queue==1; else elseBlock">the order in the way to you</span>
+      <span *ngIf="queue==0; else elseBlock">the order in the way to you</span>
       <ng-template #elseBlock>your num in queue is {{queue}}</ng-template>
        
      </div>

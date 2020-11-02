@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ShoesService } from 'src/app/services/shoes.service';
 import { OrderDetails } from 'src/app/models/OrderDetails';
 import { OrderFromStockService } from 'src/app/services/order-from-stock.service';
@@ -26,7 +26,7 @@ export class WorkersComponent implements OnInit {
   cur: boolean = false;
   oth: boolean = false;
   start: boolean = true;
-  constructor(private activatedRoute: ActivatedRoute, private shoes: ShoesService, private order_from: OrderFromStockService, private order_from_b: OrderFromBranchService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router1: Router, private shoes: ShoesService, private order_from: OrderFromStockService, private order_from_b: OrderFromBranchService) { }
 
 
   ngOnInit(): void {
@@ -35,7 +35,10 @@ export class WorkersComponent implements OnInit {
 
 
   }
-
+addShoe()
+{
+  this.router1.navigate(["/add-shoe"]);
+}
   GetOrderFromStock() {
     this.order_from.GetOrderFromStock().subscribe((data: OrderDetails) => {
       if (data != null)
