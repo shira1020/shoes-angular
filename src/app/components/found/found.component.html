@@ -40,11 +40,16 @@ the shoe found<br>
    
   <mdb-card-body>
     <!--Title-->
-    <mdb-card-title>
-      <h4 *ngIf="stock_id==0" >The shoe found</h4>
+    {{stock_id}}
+    <div *ngIf="stock_id==0 ; else elseBlock1 ">
+      <mdb-card-title>
+      <h4  >The shoe found</h4>
     </mdb-card-title>
-
-    <div *ngIf="stock_id!=0">
+    <button (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient" 
+     mdbWavesEffect>to order</button>
+    </div>
+    
+    <ng-template #elseBlock1>
       your order code: {{1000+stock_id}}
       <br>
       the order performed ,please wait...  
@@ -52,8 +57,8 @@ the shoe found<br>
       <span *ngIf="queue==0; else elseBlock">the order in the way to you</span>
       <ng-template #elseBlock>your num in queue is {{queue}}</ng-template>
        
-     </div>
-     <button *ngIf="stock_id==0" (click)="basicModal.show()"mdbBtn color="primary" class="btn aqua-gradient"  mdbWavesEffect>to order</button>
+    </ng-template>
+    
   
   </mdb-card-body>
 </mdb-card>

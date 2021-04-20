@@ -25,5 +25,7 @@ export class StockService {
     s.shoe=shoe;
     return this.http.post(environment.api + 'Shoes/OnUpload/' ,s);
   }
+  //פונקציית גט עם שליחת אובייקט או מערך:
+  //return this.http.get<any>(`${environment.URL + '/Student/AddNote'}/${id}`, { params:{value,date}});‏
 
 }

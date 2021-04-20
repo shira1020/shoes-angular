@@ -1,14 +1,135 @@
-<div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(./assets/design/background.jpg);">
+<div class="view jarallax" data-jarallax='{"speed": 0.2}'
+  style="background-image: url(./assets/design/background.jpg);">
   <div class="full-bg-img mask rgba-black-light">
     <div class="container flex-center">
       <div class="row pt-5 mt-3 w-100">
         <div class="col-md-12">
           <div class="text-center">
-
+            <br><br><br><br>
 
 
             <!-- start -->
+            <div class="card-body">
+              <div class="style-1" class="card" style="height:50%;margin-left: 6%; margin-top:25%;">
+                <!-- style="width: 60%;height:50%;margin-left: 20%; margin-top: 25%;" -->
 
+                <h4 class="aqua-gradient">Your Shoe Details</h4>
+
+                <section class="mb-5">
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 mb-md-0">
+
+                      <!-- <div id="mdb-lightbox-ui"></div> -->
+
+                      <!-- <div class="mdb-lightbox">
+            
+                    <div class="row product-gallery mx-1"> -->
+
+                      <!-- <div class="col-12 mb-0"> -->
+                      <figure class="view overlay rounded z-depth-1 main-img">
+
+                        <img style="width: 100%; width: 100%;" src="assets/shoes/{{shoe.img}}">
+                        <!-- class="img-fluid z-depth-1"  -->
+
+
+
+                      </figure>
+
+                      <!-- </div> -->
+
+                      <!-- </div>
+            
+                  </div> -->
+
+                    </div>
+                    <div class="col-md-6">
+
+                      <!-- <h5>Fantasy T-shirt</h5> -->
+
+                      <!-- <p><span class="mr-1"><strong>$12.99</strong></span></p> -->
+
+                      <div class="table-responsive">
+                        <table class="table table-sm table-borderless mb-0">
+                          <tbody>
+                            <tr>
+
+                              <th class="pl-0 w-25" scope="row"><strong>Price</strong></th>
+                              <td *ngIf="shoe.price!=shoe.salePrice; else elsePrice"><del><span class="amount">
+                                    {{shoe.price}}</span></del></td>
+                              <td #elsePrice><span class="amount"> {{shoe.price}}</span></td>
+                            </tr>
+                            <tr *ngIf="shoe.price!=shoe.salePrice">
+                              <th class="pl-0 w-25" scope="row"><strong>Sale Price</strong></th>
+                              <td> {{shoe.salePrice}}</td>
+                            </tr>
+                            <tr>
+                              <th class="pl-0 w-25" scope="row"><strong>Sale</strong></th>
+                              <td>{{shoe.saleName}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <hr>
+                      <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless">
+                          <tbody>
+                            <tr>
+                              <td class="pb-0">Select size</td>
+
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Size</label>
+                                  </div>
+
+                                  <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mysize">
+
+                                    <option *ngFor="let size of shoe.sizes" [ngValue]="size" value="">{{size}}</option>
+                                  </select>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="pb-0">Select size</td>
+
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Color</label>
+                                  </div>
+                                  <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mycolor">
+                                    <option disabled selected> choose</option>
+                                    <option *ngFor="let color of shoe.colors" value="" [ngValue]="color">{{color}}
+                                    </option>
+                                  </select>
+                                  <!-- {{mycolor}} -->
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <button (click)="IsFoundInStock()" type="button" mdbBtn color="primary"
+                          class="btn aqua-gradient" mdbWavesEffect>
+                          CHECK IN STOCK</button>
+                      </div>
+
+                      <!-- <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
+                  <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
+                      class="fas fa-shopping-cart pr-2"></i>Add to cart</button> -->
+                    </div>
+                  </div>
+
+                </section>
+
+
+              </div>
+            </div>
+            <!--Section: Block Content-->
             <!-- Card -->
 
 
@@ -19,17 +140,22 @@
             <!-- </div> -->
 
             <!-- Card content -->
+
+
+
+
+
+
+            <!--             
             <div class="card-body">
 
-              <!-- Title -->
+          
               <div class="style-1" class="card"  style="width: 50%;height:50%;margin-left: 25%;" >
                 <h4 class="aqua-gradient">Your Shoe Details</h4>
-                <!-- https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg -->
-                <!-- Card image -->
-                <!-- <div  class="view overlay zoom" > -->
-                <img class="card-img-top" style="width:100px;height: 100px;" src="assets/shoes/{{shoe.img}}"
+              
+                <img class="card-img-top"   style="width:100px;height: 100px;" src="assets/shoes/{{shoe.img}}"
                   alt="Card image cap">
-                <!-- Text -->
+             
                 price: <del><span class="amount">{{shoe.price}}</span></del>
                 sale price: <ins><span class="amount">{{shoe.salePrice}} </span></ins>
                
@@ -45,7 +171,7 @@
                     <option *ngFor="let size of shoe.sizes" [ngValue]="size" value="">{{size}}</option>
                   </select>
                 </div>
-                <!-- {{mysize}} -->
+            
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Color</label>
@@ -54,18 +180,15 @@
                     <option disabled selected> choose</option>
                     <option *ngFor="let color of shoe.colors" value="" [ngValue]="color">{{color}}</option>
                   </select>
-                  <!-- {{mycolor}} -->
+                
                 </div>
-                <!-- Button -->
-                <!-- <a href="#" class="btn btn-default">Button</a> -->
-                <!-- <button type="button" class="btn btn-elegant">Elegant</button>" -->
-                <!-- <a class="btn btn-unique">Button</a> -->
+             
                 <button (click)="IsFoundInStock()" type="button" mdbBtn color="primary" class="btn aqua-gradient"
                   mdbWavesEffect>
                   CHECK IN STOCK</button>
               
               </div>
-            </div>
+            </div> -->
             <!-- Card -->
 
             <!-- end -->

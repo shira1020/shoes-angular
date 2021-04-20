@@ -1,8 +1,13 @@
+
+
 import { Component, OnInit } from '@angular/core';
-import { OrderFromStockService } from '../../services/order-from-stock.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Shoe } from '../../models/Shoe';
-import { ShoesService } from '../../services/shoes.service';
+import { stringify } from 'querystring';
+import { ShoesService } from 'src/app/services/shoes.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { element } from 'protractor';
+import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
+import { OrderFromStockService } from 'src/app/services/order-from-stock.service';
+import { Shoe } from 'src/app/models/Shoe';
 import { SearchByCategoryServiceService } from 'src/app/services/search-by-category-service.service';
 
 @Component({
@@ -11,8 +16,7 @@ import { SearchByCategoryServiceService } from 'src/app/services/search-by-categ
   styleUrls: ['./search-by-category.component.scss']
 })
 export class SearchByCategoryComponent implements OnInit {
-
-  sizes:number[] ;
+  sizes: number[] = [];
   colors: string[] = [];
   types: string[] = [];
   mysize: number;
@@ -27,7 +31,7 @@ export class SearchByCategoryComponent implements OnInit {
   is_found:boolean=false;
   // show: boolean;
   picture: Shoe[] = [];
-  constructor(private order: OrderFromStockService ,private router1: Router,private router: ActivatedRoute, private shoes: ShoesService, public search: SearchByCategoryServiceService) { }
+  constructor(private order: OrderFromStockService,private router1: Router,private router: ActivatedRoute, private shoes: ShoesService, public search: SearchByCategoryServiceService) { }
 
 
   GetSizes() {
@@ -92,6 +96,5 @@ export class SearchByCategoryComponent implements OnInit {
       }
     });
   }
-
 
 }

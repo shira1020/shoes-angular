@@ -11,6 +11,7 @@ import { ManagerComponent } from './components/manager/manager.component';
 import { NotFoundShoeComponent } from './components/not-found-shoe/not-found-shoe.component';
 import { PayComponent } from './components/pay/pay.component';
 import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
+import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,9 @@ const routes: Routes = [
   { path: 'manager', component: ManagerComponent },
   { path: 'not-found-shoe', component: NotFoundShoeComponent },
   { path: 'pay', component: PayComponent },
-  { path: 'add-shoe', component: AddShoeComponent }
+  { path: 'add-shoe', component: AddShoeComponent },
+  { path: 'search-by-category', component: SearchByCategoryComponent}
+
 ];
 
 @NgModule({
