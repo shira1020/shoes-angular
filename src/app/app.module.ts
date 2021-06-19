@@ -21,6 +21,9 @@ import { PayComponent } from './components/pay/pay.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 //import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
 import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
+import { SearchByCategory2Component } from './components/search-by-category2/search-by-category2.component';
+import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,9 @@ import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
     ManagerComponent,
     NotFoundShoeComponent,
     PayComponent,
-    //SearchByCategoryComponent,
+    SearchByCategoryComponent,
     AddShoeComponent,
+    SearchByCategory2Component,
 
    ],
   imports: [
@@ -49,7 +53,7 @@ import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
     HttpClientModule,
     NgxPayPalModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

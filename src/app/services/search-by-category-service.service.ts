@@ -18,12 +18,13 @@ export class SearchByCategoryServiceService {
     return this.http.get(environment.api + 'Shoes/GetSizes/');
   }
   GetColors() {
-    return this.http.get(environment.api + 'Shoes/GetColors/')
+    return this.http.get(environment.api + 'Shoes/GetColors/');
   }
   GetTypes() {
     return this.http.get(environment.api + 'Shoes/GetTypes/')
   }
-  GetShoesByCategory(mysize: number, mycolor: string, mytype: string) {
-    return this.http.get(environment.api + 'Shoes/GetShoesByCategory/' + mysize + '/' + mycolor + '/' + mytype);
+  GetShoesByCategory(mysize: number, mycolor: number, kind: number, mytype: string, price: number) {
+    console.log("send ",mysize, mycolor, kind, mytype  )
+    return this.http.get(environment.api + 'Shoes/GetShoesByCategory/' + mysize+'/' + mycolor + '/' + kind + '/' + mytype + '/' + price);
   }
 }

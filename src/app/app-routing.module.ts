@@ -12,22 +12,27 @@ import { NotFoundShoeComponent } from './components/not-found-shoe/not-found-sho
 import { PayComponent } from './components/pay/pay.component';
 import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
 import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
+import { SearchByCategory2Component } from './components/search-by-category2/search-by-category2.component';
+import {AuthGuard} from './auth.guard';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'shoe-details/:id', component: ShoeDetailsComponent },
-  { path: 'join', component: JoinComponent },
-  { path: '', redirectTo: '/manager', pathMatch: 'full' },
-  { path: 'found', component: FoundComponent },
-  { path: 'branchs', component: BranchsComponent },
-  { path: 'order-from-branch', component: OrdersFromBranchesComponent },
-  { path: 'worker', component: WorkersComponent },
-  { path: 'manager', component: ManagerComponent },
-  { path: 'not-found-shoe', component: NotFoundShoeComponent },
-  { path: 'pay', component: PayComponent },
-  { path: 'add-shoe', component: AddShoeComponent },
-  { path: 'search-by-category', component: SearchByCategoryComponent}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  },
+  { path: 'shoe-details/:id', component: ShoeDetailsComponent, canActivate: [AuthGuard]  },
+  { path: 'join', component: JoinComponent, canActivate: [AuthGuard]  },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login' ,component: ManagerComponent},
+  { path: 'found', component: FoundComponent , canActivate: [AuthGuard] },
+  { path: 'branchs', component: BranchsComponent, canActivate: [AuthGuard]  },
+  { path: 'order-from-branch', component: OrdersFromBranchesComponent, canActivate: [AuthGuard]  },
+  { path: 'worker/:id', component: WorkersComponent, canActivate: [AuthGuard]  },
+  { path: 'manager', component: ManagerComponent, canActivate: [AuthGuard]  },
+  { path: 'not-found-shoe', component: NotFoundShoeComponent, canActivate: [AuthGuard]  },
+  { path: 'pay', component: PayComponent, canActivate: [AuthGuard]  },
+  { path: 'add-shoe', component: AddShoeComponent, canActivate: [AuthGuard]  },
+  { path: 'search-by-category', component: SearchByCategoryComponent, canActivate: [AuthGuard] },
+  { path: 'search-by-category2', component: SearchByCategory2Component, canActivate: [AuthGuard] },
+
 
 ];
 

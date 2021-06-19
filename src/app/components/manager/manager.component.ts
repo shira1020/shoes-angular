@@ -4,6 +4,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
 import { BranchsComponent } from '../branchs/branchs.component';
 import { BranchesService } from 'src/app/services/branches.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manager',
@@ -12,7 +13,7 @@ import { BranchesService } from 'src/app/services/branches.service';
 })
 export class ManagerComponent implements OnInit {
 
-  constructor(private employee: EmployeeService, private router1: Router,private branchService:BranchesService) { }
+  constructor(private employee: EmployeeService, private router1: Router,private branchService:BranchesService, private auth: AuthService) { }
 
   password: string = "";
   id_emp: string = "";
@@ -46,22 +47,27 @@ export class ManagerComponent implements OnInit {
   IsEmployee() {
     this.employee.IsEmployee(this.id_emp, this.password).subscribe((data: number) => {
       this.x = data;
-      if (data == 2) {
+      if (data == 0) {
             if(this.worker_branch=="")
             {
               this.GetAllBranches();
             }
             else{
-              this.GetIdBranchByName();
-              this.router1.navigate(['/worker']);
+              
+              this.GetIdBranchByName();;
+              this.auth.login(this.id_emp, this.password);
+              this.router1.navigate(['/worker/'+this.id_emp]);
             }   
         // this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
       }
-      else if (data == 0)
+      else if (data == -1)
         this.Is_employee = false;
       else {
-        this.router1.navigate(['/home']);
         this.employee.my_branch = data;
+        console.log(this.auth.branch_name ,"namE")
+        this.auth.login(this.id_emp, this.password)
+        this.router1.navigate(['/home']);
+        
         //   this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
       }
     });

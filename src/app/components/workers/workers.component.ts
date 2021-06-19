@@ -16,6 +16,7 @@ export class WorkersComponent implements OnInit {
 
 
   id: string;
+  worker_name: string = "John"
   src: string[][];
   code: number = 0;
   name: string = "";
@@ -30,7 +31,11 @@ export class WorkersComponent implements OnInit {
 
 
   ngOnInit(): void {
+
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.id)
+    // worker_name =get_worker_name_by_id()
+
     // this.shoes.get_shoe_by_id(this.id).subscribe((data: string[][]) => { this.src= data });
 
 

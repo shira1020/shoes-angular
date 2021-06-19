@@ -5,16 +5,16 @@
         <div class="col-md-12">
           <div class="text-center">
 
-            <mdb-card *ngIf="start==true" style="width: 50%;height:50%;margin-left: 25%;">
+            <mdb-card *ngIf="start==true" style="width: 50%;height:60%;margin-left: 25%;">
 
               <mdb-card-body>
                 <!--Title-->
                 <mdb-card-title>
-                  <h4>שלום</h4>
+                  <h4>Hello {{worker_name}}</h4>
                 </mdb-card-title>
 
                 <!--Text-->
-                <mdb-card-text> בחר את הפעולה המבוקשת
+                <mdb-card-text> Please select the required action
                 </mdb-card-text>
 
                 <button (click)="showCurrent()" mdbBtn color="primary" class="btn aqua-gradient" mdbWavesEffect> request

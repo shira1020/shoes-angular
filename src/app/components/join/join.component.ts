@@ -30,9 +30,13 @@ export class JoinComponent implements OnInit {
   startTimer() {
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
+        console.log(this.timeLeft)
         this.timeLeft--;
       } else {
+        console.log(this.timeLeft)
         this.join = this.Is_ok;
+        console.log(this.Is_ok)
+
       }
     }, 1000)
   }

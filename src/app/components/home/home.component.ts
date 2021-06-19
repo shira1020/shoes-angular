@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,10 +8,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor( private auth: AuthService) { }
   id:string="";
   ngOnInit(): void {
+    // if(this.auth.isLogin())
+      
   }
+check()
+{
+  
+}
   // validatingForm: FormGroup;
 
   // ngOnInit() {

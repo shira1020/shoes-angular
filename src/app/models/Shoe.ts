@@ -1,5 +1,5 @@
 export class Shoe {
-    idshoe: number;
+    id_shoe: number;
     model: number;
     picture: string;
     kind: number;

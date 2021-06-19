@@ -18,7 +18,7 @@
                 data-wow-delay="0.4s"
                   mdbWavesEffect>Join us</a> -->
                 enter shoe code :<br><input type="text" [(ngModel)]="id"/> <br>
-                 <a routerLink="/shoe-details/{{id}}" size="lg" mdbBtn color="white" outline="true" class="wow fadeInDown waves-light" data-wow-delay="0.4s"
+                 <a routerLink="/shoe-details/{{id}}" (click)="check()" size="lg" mdbBtn color="white" outline="true" class="wow fadeInDown waves-light" data-wow-delay="0.4s"
                   mdbWavesEffect>Scan</a>
               </div>
             </div>

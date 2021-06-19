@@ -11,10 +11,11 @@ export class BranchsComponent implements OnInit {
 
   constructor(private stockservice:StockService) { }
   branches:branchDetails[]=[];
-  t:boolean=false;
+  found_branches:boolean=false;
   ngOnInit(): void {
-    this.stockservice.GetBranchesByShoe().subscribe((data:branchDetails[])=>{this.branches=data});
-    if(this.branches[0][0]!=null)
-    this.t=true;
+    this.stockservice.GetBranchesByShoe().subscribe((data:branchDetails[])=>{this.branches=data;
+    console.log("data of branches= ,", data);});
+    if(this.branches.length!=0)
+      this.found_branches=true;
   }
 }

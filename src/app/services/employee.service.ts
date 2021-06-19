@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 export class EmployeeService {
 
   constructor(private http :HttpClient) { }
-my_branch:number; 
+  my_branch:number; 
+  
 IsEmployee(id_emp:string, pass:string)
   {
    return this.http.get(environment.api+'Employee/IsEmployee/'+id_emp+'/'+pass);
