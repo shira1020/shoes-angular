@@ -20,6 +20,13 @@ export class FoundComponent implements OnInit {
   ngOnInit(): void {
     // this.name=this.activatedRoute.snapshot.paramMap.get('name');
   }
+
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
   startTimer(timeLeft: number) {
     this.interval = setInterval(() => {
       if (timeLeft > 0) {

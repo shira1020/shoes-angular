@@ -46,18 +46,25 @@
                                         <h5 class="mt-1 mb-2 text-center">Sign In</h5>
 
                                         <div class="md-form ml-0 mr-0">
-                                            <input [(ngModel)]="id_emp" type="text" id="form29"
-                                                class="form-control form-control-sm ml-0" mdbInput mdbValidate>
+                                            <input [(ngModel)]="id_emp" type="number" id="form29"
+                                                class="form-control form-control-sm ml-0" pattern="[0-9]{8,9}" mdbInput mdbValidate>
                                             <!-- [formControl]="modalFormAvatarPassword" -->
                                             <label for="form29" class="ml-0">Enter Id</label>
                                         </div>
 
                                         <div class="md-form ml-0 mr-0">
-                                            <input type="password" [(ngModel)]="password" id="form30"
+                                            
+                                            <input #input type="password" [(ngModel)]="password" id="form30"
                                                 class="form-control form-control-sm ml-0" mdbInput mdbValidate>
                                             <!-- [formControl]="modalFormAvatarPassword" -->
+                                            <mdb-icon far #icon class="prefix"  icon="eye"  (click)="changeInput(input,icon)"></mdb-icon>
+                                            
                                             <label for="form30" class="ml-0">Enter password</label>
+                                           
+                                        
                                         </div>
+                                 
+                                 
                                         <!-- <mdb-error
                     *ngIf="modalFormAvatarPassword.invalid && (modalFormAvatarPassword.dirty || modalFormAvatarPassword.touched)">
                     Input invalid

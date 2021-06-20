@@ -4,11 +4,14 @@ import { environment } from 'src/environments/environment';
 import { EmployeeService } from './employee.service';
 import { Color } from 'angular-bootstrap-md';
 import { AuthService } from './auth.service';
+import { shoeDetails } from '../models/shoeDetails';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoesService {
+
+  current_shoe_details: shoeDetails = new shoeDetails ();
 
   constructor(private http:HttpClient, private employee:EmployeeService, private auth:AuthService) { }
 
