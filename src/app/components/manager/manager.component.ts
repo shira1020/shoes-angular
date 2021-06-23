@@ -1,10 +1,13 @@
-import { Component, OnInit, ContentChild } from '@angular/core';
+import { Component, OnInit, ContentChild, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
 import { BranchsComponent } from '../branchs/branchs.component';
 import { BranchesService } from 'src/app/services/branches.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ModalDirective } from 'angular-bootstrap-md';
+import { delay } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 
 @Component({
@@ -28,10 +31,19 @@ export class ManagerComponent implements OnInit {
   worker_branch:string="";
   //id_branch:number;
   worker:boolean=false;
+  @ViewChild('frame', { static: true })
+  modal: ModalDirective;
+
   ngOnInit() {
+
     this.validatingForm = new FormGroup({
       modalFormAvatarPassword: new FormControl('', Validators.required)
-    });
+    }); 
+      of(true)
+      .pipe(delay(1000))
+      .subscribe(() => {
+        this.modal.show();
+      });
   }
 
 sum:number;

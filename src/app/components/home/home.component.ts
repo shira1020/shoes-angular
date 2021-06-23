@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor( private auth: AuthService, private shoes: ShoesService,private router1: Router ) { }
   id:string="";
   interval;
-  @ViewChild('frame', { static: true }) 
+  @ViewChild('frame', { static: true })
   modal: ModalDirective;
 
   startTimer(timeLeft: number) {
