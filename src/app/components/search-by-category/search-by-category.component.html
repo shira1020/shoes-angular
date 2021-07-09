@@ -2,365 +2,92 @@
   style="background-image: url(./assets/design/background.jpg);">
   <div class="full-bg-img mask rgba-black-light">
     <div class="container flex-center row pt-5 mt-3 w-100 col-md-12">
-
-            <table class="table text-center" style="margin-top: -40%;">
-              <thead>
-                <tr>
-                  <th>
-                    select a size
-                    <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect01"
-                      [(ngModel)]="mysize">
-                      <!-- <option value="" disabled selected>Choose your size</option> -->
-                      <option *ngFor="let size of sizes" [ngValue]="size" color="pink-text" value="">{{size}}
-                      </option>
-                    </select>
-                  </th>
-                  <th>
-                    select a kind
-                    <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect02"
-                      [(ngModel)]="mykind">
-                      <!-- <option disabled selected> choose</option> -->
-                      <option [ngValue]="1" color="pink-text" value="">
-                        men
-                      </option>
-                      <option [ngValue]="2" color="pink-text" value="">
-                        woman
-                      </option>
-                    </select>
-                  </th>
-
-                  <th>
-                    select a color
-                    <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect02"
-                      [(ngModel)]="mycolor">
-                      <!-- <option disabled selected> choose</option> -->
-                      <option *ngFor="let color of colors" [ngValue]="color.id_color" color="pink-text" value="">
-                        {{color.color}}
-                      </option>
-                    </select>
-                  </th>
-                  <th>
-                    select a type
-                    <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect03"
-                      [(ngModel)]="mytype">
-
-                      <option *ngFor="let type of types" [ngValue]="type" color="pink-text" value="">{{type}}
-                      </option>
-                    </select>
-                  </th>
-                  <th>
-                    select a max price
-                    <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect04"
-                      searchable="Search here.." [(ngModel)]="myprice">
-
-                      <option *ngFor="let price of prices" [ngValue]="price" color="pink-text" value="">{{price}}
-                      </option>
-                    </select>
-                  </th>
-                </tr>
-              </thead>
-            </table>
-          
-
-          <div *ngIf="is_found==false; else elseBlockShoesList">
-
-          </div>
-          <ng-template #elseBlockShoesList>
-
-            <div *ngFor="let shoe of found_shoes">
-
-
-              {{shoe.picture}}
-              {{shoe.kind}}
-              {{shoe.idsale}}
-              {{shoe.price}}
-              {{shoe.from_size}}
-
-              {{shoe.to_size}}
-
-            </div>
-
-          </ng-template>
-        </div>
-    <!-- </mdb-navbar> -->
-
-
-    <!-- <div class="text-center" *ngIf="is_found==false ; else elseBlockShoesList">
-            <h2 class="font-weight-bold pink-lighter-hover mb-3">Search by category</h2>
-            <br><br>
-            <div>
+<!-- margin -35% -->
+      <table class="table text-center" style="margin-top: -10%;">
+        <thead>
+          <tr>
+            <th>
               select a size
-              <select class="mdb-select md-form" class="custom-select" 
-                 id="inputGroupSelect01" [(ngModel)]="mysize">
-               
+              <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect01" [(ngModel)]="mysize">
+                <!-- <option value="" disabled selected>Choose your size</option> -->
                 <option *ngFor="let size of sizes" [ngValue]="size" color="pink-text" value="">{{size}}
                 </option>
               </select>
-            </div>
-            <br><br>
-
-            <div>
+            </th>
+            <th>
               select a kind
-              <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect02"
-                [(ngModel)]="mykind">
-                
-                <option  [ngValue]="1" color="pink-text" value="">
-                 men
+              <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect02" [(ngModel)]="mykind">
+                <!-- <option disabled selected> choose</option> -->
+                <option [ngValue]="1" color="pink-text" value="">
+                  men
                 </option>
-                <option  [ngValue]="2" color="pink-text" value="">
+                <option [ngValue]="2" color="pink-text" value="">
                   woman
-                 </option>
+                </option>
               </select>
-            </div>
-            <br><br>
-
-            
-            <div>
+            </th>
+            <th>
               select a color
-              <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect02"
-                [(ngModel)]="mycolor">
-                
-                <option *ngFor="let color of colors" [ngValue]="color.id_color" color="pink-text" value="">
+              <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="mycolor">
+                <!-- <option disabled selected> choose</option> -->
+                <option *ngFor="let color of colors" [ngValue]="color.id_color" color="pink-text" class="custom-select"
+                  value="">
                   {{color.color}}
                 </option>
               </select>
-            </div>
-            <br><br>
+            </th>
+            <th>
 
-            <div>
               select a type
-              <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect03"
-                 [(ngModel)]="mytype">
-               
+              <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect03" [(ngModel)]="mytype">
+
                 <option *ngFor="let type of types" [ngValue]="type" color="pink-text" value="">{{type}}
                 </option>
               </select>
-            </div>
-            <br><br>
-
-            <div>
+            </th>
+            <th>
               select a max price
               <select class="mdb-select md-form" class="custom-select" id="inputGroupSelect04"
                 searchable="Search here.." [(ngModel)]="myprice">
-                
+
                 <option *ngFor="let price of prices" [ngValue]="price" color="pink-text" value="">{{price}}
                 </option>
               </select>
-            </div>
-            <br>
-            <button (click)="GetShoesByCategory()" mdbBtn type="button" class="btn aqua-gradient" mdbWavesEffect>
-              <span>Search</span>
-           </button>
-            {{is_found}}
+            </th>
+            <th>
+              <button (click)="GetShoesByCategory()" type="button" mdbBtn color="primary"
+              class="btn aqua-gradient" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon></button>
+            </th>
+            
+          </tr>
+        </thead>
+      </table>
 
-          </div>
+      <div *ngIf="is_found==false">
+        <h2>not found</h2>
+      </div>
+      <div *ngIf="is_found==true" style="margin-top: -15%; width: 65%; position: center;" >
 
-          <ng-template #elseBlockShoesList>
+        
+          <div *ngFor="let shoe of found_shoes" style="float: right; width: 25%; margin-left:2% ;
+          margin-right:2% ; border-style: groove; border: groove; " (click)="display_shoe(shoe.id_shoe)">
+            <img style="width: 100%;" src="./assets/shoes/{{shoe.picture}}"
+            alt="Card image cap"/>
+            
+            price:  {{shoe.price}} sale: {{shoe.idsale}}
+            
+            
            
-            <div  *ngFor="let shoe of found_shoes">
-             
-              
-              {{shoe.picture}}
-               {{shoe.kind}} 
-               {{shoe.idsale}}
-                {{shoe.price}}
-               {{shoe.from_size}} 
-               
-                {{shoe.to_size}}
-
-            </div>
-             
-          </ng-template>
-        </div> -->
 
 
+            <!-- Card -->
+            
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <p>searh-by-kategory works!</p>
-<label class="mdb-select" >Blue select</label>
-<select class="mdb-select md-form" searchable="Search here.." [(ngModel)]="mysize">
-  <option value="" disabled selected>Choose your size</option>
-  <option *ngFor="let size of sizes" [ngValue]="size" color="pink-text" value="">{{size}}
-  </option>
-</select> 
-<label class="mdb-select" >Blue select</label> 
- <select class="mdb-select md-form" searchable="Search here.." [(ngModel)]="mycolor">
-  <option value="" disabled selected>Choose your color</option>
-  <option *ngFor="let color of colors" [ngValue]="color" color="pink-text" value="">{{color}}</option>
-</select>
- <label class="mdb-select" >Blue select</label>
- <select class="mdb-select md-form" searchable="Search here.." [(ngModel)]="mytype">
-  <option value="" disabled selected>Choose your type</option>
-  <option *ngFor="let type of types" [ngValue]="type" color="pink-text" value="">{{type}}</option>
- </select> 
-<select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mysize"> 
-     <option *ngFor="let size of sizes" [ngValue]="size" color="pink-text" value="">{{size}}</option>
-  </select> item.split(".")[0](click)="search.show=true"(click)="GetPrice()" 
-<input type="button" (click)="GetShoesByCategory()" (click)="resultsearch=false" value="save">
- <a *ngFor="let item of picture" routerLink="/shoesdetails/{{item}}" > 
-<div>
-  <div *ngIf="resultsearch==false">
-  <img *ngFor="let item of picture" src="assets/shoes/{{item.picture}}.jpg"  />
-</div>
- <div *ngIf="resultsearch==true"> There are no matching results for your search</div>[(ngModel)]="item.idshoe"
-  <div *ngFor="let item of picture" >
-    <img src="assets/shoes/{{item.picture}}" />
-    <input type="button" value="check" (click)="IsFoundInStock(item.idshoe)" />
-    {{item.price}}
-     <div >{{sale}}{{descreption}}</div> 
-  </div> 
-  <div style="text-align: center;zoom: 1;" class="style-1">
-   <del>
-      <span class="amount">ש"ח{{price}}</span>
-    </del> 
-  <ins>
-              <span class="amount">ש"ח{{sale}}</span>
-            </ins>
-            <P>{{descreption}}</P> 
-    <div *ngFor="let item of descreption">ll{{item}}</div> 
-  </div>
-</div>
- <a *ngFor="let item of picture"  routerLink="" 
- >Scan</a>  -->
-
-
-    <!--Section: Block Content-->
-    <!-- <div class="card-body">
-  <div class="style-1" class="card"  style="width: 50%;height:50%;margin-left: 25%;" >
-    <h4 class="aqua-gradient">Your Shoe Details</h4>
-
-<section class="mb-5">
-
-  <div class="row">
-    <div class="col-md-6 mb-4 mb-md-0">
-
-      <div id="mdb-lightbox-ui"></div>
-
-      <div class="mdb-lightbox">
-
-        <div class="row product-gallery mx-1">
-
-          <div class="col-12 mb-0">
-            <figure class="view overlay rounded z-depth-1 main-img">
-             <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-                data-size="710x823">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-                  class="img-fluid z-depth-1">
-              </a> 
-            </figure>
-     
           </div>
-    
-        </div>
+
+        
 
       </div>
-
     </div>
-    <div class="col-md-6">
-
-      <h5>Fantasy T-shirt</h5>
-     
-      <p><span class="mr-1"><strong>$12.99</strong></span></p>
-
-      <div class="table-responsive">
-        <table class="table table-sm table-borderless mb-0">
-          <tbody>
-            <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Model</strong></th>
-              <td>Shirt 5407X</td>
-            </tr>
-            <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
-              <td>Black</td>
-            </tr>
-            <tr>
-              <th class="pl-0 w-25" scope="row"><strong>Delivery</strong></th>
-              <td>USA, Europe</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <hr>
-      <div class="table-responsive mb-2">
-        <table class="table table-sm table-borderless">
-          <tbody>
-            <tr>
-              <td class="pb-0">Select size</td>
-            
-            </tr>
-            <tr>
-              <td>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Size</label>
-                  </div>
-
-                  <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mysize">
-
-                    <option *ngFor="let size of shoe.sizes" [ngValue]="size" value="">{{size}}</option>
-                  </select>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="pb-0">Select size</td>
-            
-            </tr>
-            <tr>
-              <td>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Color</label>
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mycolor">
-                    <option disabled selected> choose</option>
-                    <option *ngFor="let color of shoe.colors" value="" [ngValue]="color">{{color}}</option>
-                  </select> -->
-    <!-- {{mycolor}} -->
-    <!-- </div> 
-              </td>
-            </tr>
-          </tbody>
-        </table> <button (click)="IsFoundInStock()" type="button" mdbBtn color="primary" class="btn aqua-gradient"
-        mdbWavesEffect>
-        CHECK IN STOCK</button>
-      </div>-->
-
-    <!-- <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
-      <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
-          class="fas fa-shopping-cart pr-2"></i>Add to cart</button> -->
-    <!-- </div>
   </div>
-
-</section>
-
-
 </div>
-</div> -->
-    <!--Section: Block Content-->

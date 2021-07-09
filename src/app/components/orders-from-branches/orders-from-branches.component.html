@@ -20,7 +20,7 @@
                   <input name="name" id="defaultForm-pass1" mdbInput [(ngModel)]="name" required mdbValidate
                     class="form-control">
                   <label data-error="wrong" data-success="right" for="defaultForm-pass1">Your name</label>
-                </div>{{name}}
+                </div>
                 <div class="md-form md-outline">
                   <input mdbInput mdbValidate name="input" type="email" id="form8" class="form-control"
                     [(ngModel)]="mail" #input="ngModel" required pattern="[^ @]*@[^ @]*">
@@ -55,15 +55,15 @@
 
             <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
               aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-                <!--Content-->
+              <div class="modal-dialog modal-sm modal-notify modal-success"  role="document">
+                <!--Content -->
                 <div class="modal-content text-center">
                   <!--Header-->
-                  <div class="modal-header d-flex justify-content-center">
-                    <p class="heading">Are you sure?</p>
+                  <div  class="modal-header d-flex justify-content-center">
+                    <p  class="heading">Are you sure?</p>
                   </div>
 
-                  <!--Body-->
+                  <!--Body -->
                   <div class="modal-body">
                     <mdb-icon fas icon="times" size="4x" class="animated rotateIn"></mdb-icon>
                   </div>
@@ -73,19 +73,19 @@
 
                     
                       <!-- outline="true" -->
-                      <a (click)="t=true" (click)="AddOrderToBranch()" mdbBtn color="danger" class="waves-effect" mdbWavesEffect>Yes</a>
+                      <a (click)="t=true" (click)="AddOrderToBranch()" mdbBtn color="danger" class="aqua-gradient" mdbWavesEffect>Yes</a>
                    
                     
-                    <a type="button" mdbBtn color="danger" class="waves-effect" mdbWavesEffect data-dismiss="modal"
+                    <a type="button" mdbBtn color="danger" class="aqua-gradient" mdbWavesEffect data-dismiss="modal"
                       (click)="frame.hide()">No</a>
                     <!-- <div>{{IsOrder}}</div> -->
 
                     <div *ngIf="t==true">
                       <div *ngIf="IsOrder==false">
-                        הנעל לא קיימת בשום סניף
+                        The shoe not exist in any branch
                       </div>
                       <div *ngIf="IsOrder==true">
-                        הנעל הוזמנה לסניף הנוכחי
+                        Your shoe ordered to your current branch
                       </div>
                     </div>
 

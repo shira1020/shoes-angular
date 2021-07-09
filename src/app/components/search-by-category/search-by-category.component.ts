@@ -12,6 +12,7 @@ import { SearchByCategoryServiceService } from 'src/app/services/search-by-categ
 import { shoeDetails } from 'src/app/models/shoeDetails';
 import { Color } from 'src/app/models/Color';
 import { CommonModule } from '@angular/common';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-search-by-category',
@@ -34,11 +35,13 @@ export class SearchByCategoryComponent implements OnInit {
   shoe:Shoe ;
   descreption: string="";
   resultsearch: boolean;
-  is_found:boolean=false;
+  is_found:boolean=true;
   found_shoes: Shoe[] = [];
   // show: boolean;
   picture: Shoe[] = [];
-  constructor(private order: OrderFromStockService,private router1: Router,private router: ActivatedRoute, private shoes: ShoesService, private search: SearchByCategoryServiceService) {}
+  constructor(private order: OrderFromStockService,private router1: Router,
+    private router: ActivatedRoute, private shoes: ShoesService,
+     private search: SearchByCategoryServiceService, private auth: AuthService) {}
 
 
   ngOnInit(): void {
@@ -49,7 +52,7 @@ export class SearchByCategoryComponent implements OnInit {
     this.GetColors();
     this.GetTypes();
     //this.idshoe = +this.router.snapshot.paramMap.get('idshoe');
-    console.log("sizes= ",this.sizes) 
+    console.log("sizes= ",this.sizes)
     // this.search.color = this.mycolor;
     // this.search.size = this.mysize;
     // this.search.type = this.mytype;
@@ -60,7 +63,18 @@ export class SearchByCategoryComponent implements OnInit {
   {
 
   }
+  display_shoe(id:number)
+  {
+console.log("id shoe search", id)
+    this.shoes.GetDetailsById(id).subscribe((data: shoeDetails) => {
 
+        this.shoes.current_shoe_details = data;
+        
+        this.router1.navigate(["/shoe-details/"+id]);
+      
+    });
+    console.log("auth id in search",this.auth.id_branch)
+  }
   GetSizes() {
 
     this.search.GetSizes().subscribe((data: number[]) => { this.sizes = data ; console.log("data= "+data)});
@@ -71,7 +85,7 @@ export class SearchByCategoryComponent implements OnInit {
 
   GetTypes() {
     this.search.GetTypes().subscribe((data: string[]) => { this.types = data ; console.log("types= ", this.types)});
-  }
+}
 
   GetShoesByCategory() {
 

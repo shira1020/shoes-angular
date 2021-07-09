@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShoesService } from 'src/app/services/shoes.service';
 import { OrderDetails } from 'src/app/models/OrderDetails';
 import { OrderFromStockService } from 'src/app/services/order-from-stock.service';
 import { OrderFromBranchService } from 'src/app/services/order-from-branch.service';
+import { ModalDirective } from 'angular-bootstrap-md';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-workers',
@@ -28,7 +31,8 @@ export class WorkersComponent implements OnInit {
   oth: boolean = false;
   start: boolean = true;
   constructor(private activatedRoute: ActivatedRoute, private router1: Router, private shoes: ShoesService, private order_from: OrderFromStockService, private order_from_b: OrderFromBranchService) { }
-
+  @ViewChild('frame', { static: true })
+  modal: ModalDirective;
 
   ngOnInit(): void {
 
@@ -49,16 +53,42 @@ addShoe()
       if (data != null)
         this.order = data
       else
+      {
+        of(true)
+        .pipe(delay(1000))
+        .subscribe(() => {
+          this.modal.show();
+          
+        });
         this.finish = true;
+      }
+        
     });
   }
-
+start_back()
+{
+  this.start=true
+}
   GetOrderfromBranch() {
     this.order_from_b.GetOrderfromBranch().subscribe((data: OrderDetails) => {
+      console.log(data)
       if (data != null)
-        this.order_from_branch = data;
+      {
+        console.log("data of order=", data)
+          this.order_from_branch = data;
+
+      }
       else
+      {
+        of(true)
+        .pipe(delay(1000))
+        .subscribe(() => {
+          this.modal.show();
+        });
         this.finish_order_from_b = true;
+
+        
+      }
     })
   }
 

@@ -34,14 +34,14 @@
 
 
 
-<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+<div  mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-    <!--Content-->
+  <div  class="modal-dialog modal-sm modal-notify modal-success" role="document">
+    <!--Content class="modal-dialog modal-sm modal-notify modal-danger-->
     <div class="modal-content text-center">
       <!--Header-->
       <div class="modal-header d-flex justify-content-center">
-        <p class="heading">The shoe not found</p>
+        <p background-color="red" class="heading">The shoe not found</p>
       </div>
 
       <!--Body-->
@@ -54,7 +54,7 @@
 
 
         <!-- outline="true" -->
-        <a mdbBtn color="danger" class="waves-effect" mdbWavesEffect (click)="frame.hide()">Ok</a>
+        <a mdbBtn color="danger" class="aqua-gradient" mdbWavesEffect (click)="frame.hide()">Ok</a>
 
 
     

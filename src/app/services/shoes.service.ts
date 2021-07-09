@@ -32,6 +32,7 @@ export class ShoesService {
 
   GetDetailsById(id:number)
   {
+    console.log("id in service", id)
   return this.http.get(environment.api+'Shoes/GetDetailsById/'+id);
   }
   IsFoundInStock(id_shoe:number,size:number,color:string)

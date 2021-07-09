@@ -57,14 +57,11 @@
                                         <!--Table body-->
                                         <tbody>
                                             <tr *ngFor='let branch of branches'>
-                                                <th scope="row">
-                                                    <label class="form-check-label" for="checkbox1"
-                                                        class="label-table"></label>
-                                                </th>
-                                                <td>{{branch.name}}</td>
+                                          
+                                                <td >{{branch.name}}</td>
                                                 <td>{{branch.adress}}</td>
                                                 <td><a href="{{branch.mapLink}}" target="_blank"> <img
-                                                            style="width:40px;height: 40px;"
+                                                            style="width:40px;height: 40px;margin-left: 50px;"
                                                             src="./assets/google-maps.png">‏
                                                     </a></td>
                                             </tr>

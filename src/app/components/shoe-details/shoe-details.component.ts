@@ -28,6 +28,7 @@ export class ShoeDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = +this.activatedRoute.snapshot.paramMap.get('id');
     this.shoe = this.shoes.current_shoe_details;
+    console.log(this.shoe)
     // if (!this.isNumeric(this.id))
     //   this.router1.navigate(["/home"]);
     // this.shoes.GetDetailsById(+this.id).subscribe((data: shoeDetails) => {

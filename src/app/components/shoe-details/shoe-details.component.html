@@ -93,7 +93,7 @@
                               </td>
                             </tr>
                             <tr>
-                              <td class="pb-0">Select size</td>
+                              <td class="pb-0">Select color</td>
 
                             </tr>
                             <tr>
@@ -103,7 +103,7 @@
                                     <label class="input-group-text" for="inputGroupSelect01">Color</label>
                                   </div>
                                   <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="mycolor">
-                                    <option disabled selected> choose</option>
+                                    <!-- <option disabled selected> </option> -->
                                     <option *ngFor="let color of shoe.colors" value="" [ngValue]="color">{{color}}
                                     </option>
                                   </select>

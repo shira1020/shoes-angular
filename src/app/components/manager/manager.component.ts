@@ -17,20 +17,20 @@ import { of } from 'rxjs';
 })
 export class ManagerComponent implements OnInit {
 
-  constructor(private employee: EmployeeService, private router1: Router,private branchService:BranchesService, private auth: AuthService) { }
+  constructor(private employee: EmployeeService, private router1: Router, private branchService: BranchesService, private auth: AuthService) { }
 
 
   password: string = "";
   id_emp: number;
-  id_emp_string="";
+  id_emp_string = "";
   validatingForm: FormGroup;
   Is_employee: boolean = true;
   // url: string = "";
   x: number;
-  braches:string[]=[];
-  worker_branch:string="";
+  braches: string[] = [];
+  worker_branch: string = "";
   //id_branch:number;
-  worker:boolean=false;
+  worker: boolean = false;
   @ViewChild('frame', { static: true })
   modal: ModalDirective;
 
@@ -38,19 +38,19 @@ export class ManagerComponent implements OnInit {
 
     this.validatingForm = new FormGroup({
       modalFormAvatarPassword: new FormControl('', Validators.required)
-    }); 
-      of(true)
+    });
+    of(true)
       .pipe(delay(1000))
       .subscribe(() => {
         this.modal.show();
       });
   }
 
-sum:number;
-temp:number;
+  sum: number;
+  temp: number;
 
-  IdCorrect = (): boolean =>{
-   
+  IdCorrect = (): boolean => {
+
     this.sum = 0;//לסיכום החישוב
 
     for (var i = 0; i < 8; i++) {
@@ -63,32 +63,29 @@ temp:number;
       //התוצאה מוכנסת לסיכום
       else {
         this.temp = 2 * +this.id_emp_string.charAt(i);
-        this.sum += (Math.floor(this.temp/10) +this.temp%10);
+        this.sum += (Math.floor(this.temp / 10) + this.temp % 10);
       }
     }
 
     this.sum += +this.id_emp_string[8]
-    if(this.sum % 10 == 0)
-    {
+    if (this.sum % 10 == 0) {
       return true
     }
     return false;
-      
+
   }
 
   changeInput(input: any, icon: any): any {
     input.type = input.type === 'password' ? 'text' : 'password';
-    icon.icon =  icon.icon === "eye" ? "eye-slash" : "eye";
+    icon.icon = icon.icon === "eye" ? "eye-slash" : "eye";
   }
 
-  GetAllBranches()
-  {
-    this.branchService.GetAllBranches().subscribe((data:string[])=>{this.braches=data});
-    this.worker=true;
+  GetAllBranches() {
+    this.branchService.GetAllBranches().subscribe((data: string[]) => { this.braches = data });
+    this.worker = true;
   }
-  GetIdBranchByName()
-  {
-    this.branchService.GetIdBranchByName(this.worker_branch).subscribe((data:number)=>{this.employee.my_branch = data});
+  GetIdBranchByName() {
+    this.branchService.GetIdBranchByName(this.worker_branch).subscribe((data: number) => { this.employee.my_branch = data });
   }
 
   get modalFormAvatarPassword() {
@@ -96,40 +93,37 @@ temp:number;
   }
   IsEmployee() {
     this.id_emp_string = this.id_emp.toString()
-    if(this.IdCorrect())
-    {
+    if (this.IdCorrect()) {
       console.log("id valid")
-      
+
       this.employee.IsEmployee(this.id_emp_string, this.password).subscribe((data: number) => {
         this.x = data;
         if (data == 0) {
-            if(this.worker_branch=="")
-            {
-              this.GetAllBranches();
-            }
-            else{
-              
-              this.GetIdBranchByName();;
-              this.auth.login(this.id_emp_string, this.password);
-              this.router1.navigate(['/worker/'+this.id_emp]);
-            }   
-        // this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
-      }
-      else if (data == -1)
-      this.Is_employee = false;
-      else {
-        this.employee.my_branch = data;
-        console.log(this.auth.branch_name ,"namE")
-        this.auth.login(this.id_emp_string, this.password)
-        this.router1.navigate(['/home']);
-        
-        //   this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
-      }
-    });
-  }
-  else
-  {
-    console.log("id is invalid")
-  }
+          if (this.worker_branch == "") {
+            this.GetAllBranches();
+          }
+          else {
+
+            this.GetIdBranchByName();;
+            this.auth.login(this.id_emp_string, this.password);
+            this.router1.navigate(['/worker/' + this.id_emp]);
+          }
+          // this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
+        }
+        else if (data == -1)
+          this.Is_employee = false;
+        else {
+          this.employee.my_branch = data;
+          console.log(this.auth.branch_name, "namE")
+          this.auth.login(this.id_emp_string, this.password)
+          this.router1.navigate(['/home']);
+
+          //   this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
+        }
+      });
+    }
+    else {
+      console.log("id is invalid")
+    }
   }
 }
