@@ -8,6 +8,7 @@ export class EmployeeService {
 
   constructor(private http :HttpClient) { }
   my_branch:number; 
+  my_branch_string: string;
   
 IsEmployee(id_emp:string, pass:string)
   {

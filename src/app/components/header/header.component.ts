@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('frame', { static: true })
   modal: ModalDirective;
   sum:number;
+  id_for_header: number
 temp:number;
 
   IdCorrect = (): boolean =>{
@@ -65,24 +66,35 @@ temp:number;
   
   // password:string;
   // validatingForm: FormGroup;
-  branch_name:string;
-
+  branch_name:string ="";
 
   ngOnInit() {
     this.branch_name = this.auth.branch_name
-    console.log("header init", this.auth.id_branch , this.employee.my_branch)
+    console.log("header init",this.branch_name, this.auth.id_branch ,this.auth.id_branch_for_header, this.employee.my_branch)
+  //   if(this.branch_name)
+  //   {
+  // //      this.branch.GetIdBranchByName(this.branch_name).subscribe((data: number) => {
+  // //      console.log("get data in lambda header",this.branch_name, data); 
+  // //      this.auth.id_branch =data;
+  // // });   
+  //   }
 
-    this.branch.GetBranchNameById(this.auth.id_branch).subscribe((data:string) => {this.branch_name=data});
+      console.log("get data after labda header",  this.auth.id_branch,  this.id_for_header )
+    //this.branch.GetBranchNameById(this.auth.id_branch).subscribe((data:string) => {this.branch_name=data});
    
     this.validatingForm = new FormGroup({
       modalFormAvatarPassword: new FormControl('', Validators.required)
     });
   }
 
-logout()
-{
-this.auth.logout()
-}
+  // ngOnDestroy()
+  // {
+  //   this.logout()
+  // }
+  logout()
+  {
+  this.auth.logout()
+  }
 
   get modalFormAvatarPassword() {
     return this.validatingForm.get('modalFormAvatarPassword');
@@ -126,7 +138,9 @@ this.auth.logout()
   }
   GetIdBranchByName()
   {
-    this.branch.GetIdBranchByName(this.worker_branch).subscribe((data:number)=>{this.employee.my_branch = data});
+    console.log("shira get b by name", this.worker_branch)
+    this.branch.GetIdBranchByName(this.worker_branch).subscribe((data:number)=>{this.employee.my_branch = data;
+    console.log("shira get b by name header ts 2", this.worker_branch, this.employee.my_branch , data)});
   }
 
 

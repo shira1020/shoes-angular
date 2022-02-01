@@ -11,6 +11,8 @@ export class BranchesService {
 
   GetAllBranches()
   {
+    this.http.get("https://data.gov.il/api/3/action/datastore_search?resource_id=894ea7de-08d0-45ce-98f2-379977499618");
+    console.log("here")
     return this.http.get(environment.api+'Branch/GetAllBranches/');
   }
 

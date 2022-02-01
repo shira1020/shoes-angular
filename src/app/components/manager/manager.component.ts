@@ -85,7 +85,20 @@ export class ManagerComponent implements OnInit {
     this.worker = true;
   }
   GetIdBranchByName() {
-    this.branchService.GetIdBranchByName(this.worker_branch).subscribe((data: number) => { this.employee.my_branch = data });
+    this.branchService.GetIdBranchByName(this.worker_branch).subscribe((data: number) => { 
+      this.employee.my_branch = data 
+      this.auth.id_branch = data;
+    });
+  }
+
+  GetNameBranchById(id:number) {
+    this.branchService.GetBranchNameById(id).subscribe((data2:string) => {
+      this.worker_branch=data2;
+    console.log("login as manager ", id, data2);
+  
+    this.auth.login(this.id_emp_string, this.password, this.worker_branch);
+        this.router1.navigate(['/home']);
+  });
   }
 
   get modalFormAvatarPassword() {
@@ -103,20 +116,23 @@ export class ManagerComponent implements OnInit {
             this.GetAllBranches();
           }
           else {
+            console.log("worker ",this.worker_branch , this.id_emp_string)
 
-            this.GetIdBranchByName();;
-            this.auth.login(this.id_emp_string, this.password);
+            //shira this.GetIdBranchByName();
+            console.log("worker ",this.worker_branch , this.id_emp_string, this.employee.my_branch)
+            this.auth.login(this.id_emp_string, this.password, this.worker_branch);
             this.router1.navigate(['/worker/' + this.id_emp]);
           }
           // this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
         }
         else if (data == -1)
           this.Is_employee = false;
-        else {
+        else {//manager
           this.employee.my_branch = data;
+          this.GetNameBranchById(data);
           console.log(this.auth.branch_name, "namE")
-          this.auth.login(this.id_emp_string, this.password)
-          this.router1.navigate(['/home']);
+         
+          
 
           //   this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
         }

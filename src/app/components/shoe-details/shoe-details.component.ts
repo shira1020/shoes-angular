@@ -27,6 +27,8 @@ export class ShoeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.activatedRoute.snapshot.paramMap.get('id');
+    
+    console.log("init shoe details", this.id, this.shoes.current_shoe_details)
     this.shoe = this.shoes.current_shoe_details;
     console.log(this.shoe)
     // if (!this.isNumeric(this.id))
