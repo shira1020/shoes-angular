@@ -81,8 +81,15 @@
                                             </select>
                                         </div>
 
+                                   
+                                        
+
 
                                         <div class="text-center mt-4">
+                                            <button *ngIf="is_manager == true" (click)="Managment()" class="btn aqua-gradient" width="80%" mdbBtn color="cyan"
+                                            rounded="true" mdbWavesEffect>Employess Staticts
+                         
+                                        </button>
                                             <!--routerLink="{{url}}" routerLink="/home"     (click)="frame.hide()" -->
                                             <button (click)="IsEmployee()" class="btn aqua-gradient" mdbBtn color="cyan"
                                                 rounded="true" mdbWavesEffect>Enter

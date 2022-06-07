@@ -13,6 +13,7 @@ import { PayComponent } from './components/pay/pay.component';
 import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
 import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
 import { SearchByCategory2Component } from './components/search-by-category2/search-by-category2.component';
+import { ManagmentComponent } from './components/managment/managment.component';
 import {AuthGuard} from './auth.guard';
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'add-shoe', component: AddShoeComponent, canActivate: [AuthGuard]  },
   { path: 'search-by-category', component: SearchByCategoryComponent, canActivate: [AuthGuard] },
   { path: 'search-by-category2', component: SearchByCategory2Component, canActivate: [AuthGuard] },
-
+  { path: 'managment', component: ManagmentComponent, canActivate: [AuthGuard] },
 
 ];
 

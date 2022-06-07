@@ -8,6 +8,7 @@ import { OrderFromBranchService } from 'src/app/services/order-from-branch.servi
 import { ModalDirective } from 'angular-bootstrap-md';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-workers',
@@ -19,7 +20,7 @@ export class WorkersComponent implements OnInit {
 
 
   id: string;
-  worker_name: string = "John"
+  worker_name: string;
   src: string[][];
   code: number = 0;
   name: string = "";
@@ -30,7 +31,12 @@ export class WorkersComponent implements OnInit {
   cur: boolean = false;
   oth: boolean = false;
   start: boolean = true;
-  constructor(private activatedRoute: ActivatedRoute, private router1: Router, private shoes: ShoesService, private order_from: OrderFromStockService, private order_from_b: OrderFromBranchService) { }
+  constructor(private activatedRoute: ActivatedRoute,
+     private router1: Router,
+      private shoes: ShoesService,
+       private order_from: OrderFromStockService,
+        private order_from_b: OrderFromBranchService,
+        private emp: EmployeeService) { }
   @ViewChild('frame', { static: true })
   modal: ModalDirective;
 
@@ -38,12 +44,15 @@ export class WorkersComponent implements OnInit {
 
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.id)
-    // worker_name =get_worker_name_by_id()
+    this.emp.get_worker_name_by_id(this.id).subscribe((data: string) =>
+    {
+      this.worker_name = data
+    });
 
     // this.shoes.get_shoe_by_id(this.id).subscribe((data: string[][]) => { this.src= data });
 
-
   }
+  
 addShoe()
 {
   this.router1.navigate(["/add-shoe"]);
@@ -51,7 +60,10 @@ addShoe()
   GetOrderFromStock() {
     this.order_from.GetOrderFromStock().subscribe((data: OrderDetails) => {
       if (data != null)
+      {
         this.order = data
+        this.order_from.IncreaseWorkerJob(this.worker_name)
+      }
       else
       {
         of(true)

@@ -24,6 +24,7 @@ import { AddShoeComponent } from './components/add-shoe/add-shoe.component';
 import { SearchByCategory2Component } from './components/search-by-category2/search-by-category2.component';
 import { SearchByCategoryComponent } from './components/search-by-category/search-by-category.component';
 import { AuthGuard } from './auth.guard';
+import { ManagmentComponent } from './components/managment/managment.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AuthGuard } from './auth.guard';
     SearchByCategoryComponent,
     AddShoeComponent,
     SearchByCategory2Component,
+    ManagmentComponent,
 
    ],
   imports: [

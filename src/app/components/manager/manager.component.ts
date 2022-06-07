@@ -31,6 +31,8 @@ export class ManagerComponent implements OnInit {
   worker_branch: string = "";
   //id_branch:number;
   worker: boolean = false;
+  is_manager: boolean = false;
+  manager_choose = false;
   @ViewChild('frame', { static: true })
   modal: ModalDirective;
 
@@ -49,6 +51,11 @@ export class ManagerComponent implements OnInit {
   sum: number;
   temp: number;
 
+  Managment()
+  {
+    this.auth.login(this.id_emp_string, this.password)
+    this.router1.navigate(['/managment']);
+  }
   IdCorrect = (): boolean => {
 
     this.sum = 0;//לסיכום החישוב
@@ -101,9 +108,11 @@ export class ManagerComponent implements OnInit {
         if (data == 0) {
           if (this.worker_branch == "") {
             this.GetAllBranches();
+            this.is_manager= false
+            this.manager_choose = false
           }
           else {
-
+           
             this.GetIdBranchByName();;
             this.auth.login(this.id_emp_string, this.password);
             this.router1.navigate(['/worker/' + this.id_emp]);
@@ -113,11 +122,21 @@ export class ManagerComponent implements OnInit {
         else if (data == -1)
           this.Is_employee = false;
         else {
-          this.employee.my_branch = data;
-          console.log(this.auth.branch_name, "namE")
+          this.is_manager= true
+          this.worker  = false;
+          if(this.manager_choose)
+          {
+             this.employee.my_branch = data;
+          console.log(this.auth.branch_name, "name")
           this.auth.login(this.id_emp_string, this.password)
           this.router1.navigate(['/home']);
 
+          }
+          else
+          {
+            this.manager_choose = true;
+          }
+         
           //   this.employee.MyBranch(this.password).subscribe((data: number) => { this.employee.my_branch = data });
         }
       });
